@@ -1,4 +1,4 @@
-# ![Engula](images/logo-wide.drawio.svg)
+# ![Engula](images/logo-wide.png)
 
 <div style="text-align:center">
   A cloud-native storage engine for next-generation data infrastructures.

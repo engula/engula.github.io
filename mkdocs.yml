@@ -1,5 +1,7 @@
 site_name: Engula
 site_url: https://engula.com
+
+repo_name: engula/engula
 repo_url: https://github.com/engula/engula
 
 theme:
