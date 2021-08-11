@@ -1,0 +1,18 @@
+site_name: Engula
+site_url: https://engula.com
+repo_url: https://github.com/engula/engula
+
+theme:
+  name: material
+  logo: images/icon-white.drawio.svg
+  features:
+    - navigation.instant
+    - navigation.tabs
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/engula
+
+nav:
+  - HOME: index.md
