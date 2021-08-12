@@ -6,7 +6,8 @@ repo_url: https://github.com/engula/engula
 
 theme:
   name: material
-  logo: images/icon-white.drawio.svg
+  logo: images/favicon.svg
+  favicon: images/favicon.svg
   features:
     - navigation.instant
     - navigation.tabs
