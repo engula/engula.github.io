@@ -25,7 +25,7 @@ Modern businesses are so varied but also so valuable that, sometimes, it is wort
 Besides that, admit it or not, we engineers just love to craft our databases.
 It is so fun and proud to build a new database, make it into production, and see it runs so well.
 But, on the other hand, it does require so much effort to develop, and it is not so fun to operate and maintain because of the toil and stress.
-We want a solid foundation that takes care of our troubles and lets us focus on the most fun and important part.
+We want a solid foundation that takes care of our troubles so that we can focus on the most fun and important part.
 
 Fortunately, open-source projects have significantly lowered the bar for homebrew databases in the last decade. Nowadays, tools like RocksDB and gRPC enable us to build a decent standalone database with much less effort. However, when it comes to distributed databases and then cloud databases, things are still very tough.
 
