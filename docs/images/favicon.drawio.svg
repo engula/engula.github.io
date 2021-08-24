@@ -1,17 +1,17 @@
-<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="561px" height="561px" viewBox="-0.5 -0.5 561 561" content="&lt;mxfile&gt;&lt;diagram id=&quot;jWUFB24kEZgdJ2QmPlMA&quot; name=&quot;Page-1&quot;&gt;7ZjNcpswFIWfxtsOP7bBy8aO00W78qLxUgMyqJG5jJBt3KevBFcWBCdtkxjGE7NgdI90hfQdoRGM/Pm2fBAkT39ATPnIc+Jy5C9GnheGnrpr4VgLQRDUQiJYXEuuFVbsN0XRQXXHYlq0GkoALlneFiPIMhrJlkaEgEO72QZ4+6k5SWhHWEWEd9WfLJYpTmviWP0bZUlqnuw6WLMlpjEKRUpiODQk/37kzwWArEvbck65Zme41HnLF2pPAxM0k/+UEM7qlD3hO5wdjkwezXRViiKrgrtDyiRd5STSNQflrdJSueUqclWRFHmNe8NKqp5wt2Gcz4GDqDrynepSeiEFPFFTk0GmO++OHaezp0LSsiHhXB4obKkUR9XkYG2YTJFt2rDgJBK0PjnlWjqqgIBegBX4l4RVQzELyhtr6YnKSEcVNLNWnGdkkV8bqsK9rK53ksVa36xYfGVDDBvgwzPcww/B7n5a7O50QOzBDTti98Z9cr/olnxV3MdOj9zNqeQTcn++u/fLfXLjPsg+M+5ijtU5F0Ocv4BdFmuSFSAQMoUEMsK/A+TI/BeV8oindLKT0HaElkw+Nspr3dWXCUaLEnuugqMJMjWZx2bQyNKhTasimxd/1ed7O3ylLJlmsHD+dzG8wfkCdiIyHwnm2CKJSKhpZ46QmvSrK0RQTiTbt7843uf3tOP3h5lrDV03/fyLudbPtenvaswNzpnrDmau2RF6epnbfrtv8tu5fr9nw/ndfZlvm/el/TYnlSH89m9+X9Tv2Tm/vZ78VqH951fVNX6c+vd/AA==&lt;/diagram&gt;&lt;/mxfile&gt;">
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="601px" height="601px" viewBox="-0.5 -0.5 601 601" content="&lt;mxfile&gt;&lt;diagram id=&quot;jWUFB24kEZgdJ2QmPlMA&quot; name=&quot;Page-1&quot;&gt;7ZjNcpswFIWfhm2HHzvGy8aOk0W68qLxUgMyqJG5jCzb0KevBFcWBCdtkxjGEzMsdI90hfQdoRE4wWxT3AuSpz8gptzx3bhwgrnj+57n+46+3bisldCd1EIiWIyNrLBkvymKLqo7FtNtq6EE4JLlbTGCLKORbGlECDi0m62Bt5+ak4R2hGVEeFf9yWKZ4izGrtUfKEtS82TPxZoNMY1R2KYkhkNDCu6cYCYAZF3aFDPKNTzDpc5bvFJ7HJigmfynhHBap+wJ3+HscGSyNNNVKYqsCm4PKZN0mZNI1xyUuUpL5YaryFNFss1r3GtWUPWE2zXjfAYcRNVR4FaX0rdSwDM1NRlkuvPu2HE6eyokLRoSzuWewoZKUaomB2vDjYGdNiw4igStT465lo4qIKBXYE2Cc8KqoZgF5Y+19ExlpKMKmlkr7guyyK8NVeFeVNcHyWJtMEKApXkVMW6QD0+ADz+Fu/dluXvhkNwnV+7IXe0gPXI/66Z8UdxHfo/cQ//Lcn+5v/fLfXzlPsg+M+pijtVJF0Ocv4BdFmuSFSAQMoUEMsIfAXJk/otKWeI5newktB2hBZNPjfJKd/VtjNG8wJ6roDRBpibz1AwaWTq0aVVk8+Lv+oRvh6+UBdMM5u7/LoZ3OL+FnYjMZ4I5t0giEmramUOkJv3mChGUE8n27W+Oj/l90/H708y1hq6afv7FXOvnyvR3MeZOTpnrDWau2RF6epnbfnvv8tu9fL+nw/ndfZmvm/e5/TYnlSH8Dq5+n9Xv6Sm//Z78VqH961fVNf6dBnd/AA==&lt;/diagram&gt;&lt;/mxfile&gt;">
     <defs/>
     <g>
-        <ellipse cx="280" cy="280" rx="280" ry="280" fill="#000000" stroke="none" pointer-events="all"/>
-        <ellipse cx="360" cy="120" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="24" pointer-events="all"/>
-        <ellipse cx="200" cy="120" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="24" pointer-events="all"/>
-        <ellipse cx="200" cy="280" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="24" pointer-events="all"/>
-        <ellipse cx="200" cy="440" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="24" pointer-events="all"/>
-        <ellipse cx="360" cy="440" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="24" pointer-events="all"/>
-        <ellipse cx="360" cy="280" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="24" pointer-events="all"/>
-        <path d="M 240 120 L 320 120" fill="none" stroke="#ffffff" stroke-width="24" stroke-miterlimit="10" pointer-events="stroke"/>
-        <path d="M 200 240 L 200 160" fill="none" stroke="#ffffff" stroke-width="24" stroke-miterlimit="10" pointer-events="stroke"/>
-        <path d="M 200 320 L 200 400" fill="none" stroke="#ffffff" stroke-width="24" stroke-miterlimit="10" pointer-events="stroke"/>
-        <path d="M 240 280 L 320 280" fill="none" stroke="#ffffff" stroke-width="24" stroke-miterlimit="10" pointer-events="stroke"/>
-        <path d="M 240 440 L 320 440" fill="none" stroke="#ffffff" stroke-width="24" stroke-miterlimit="10" pointer-events="stroke"/>
+        <ellipse cx="300" cy="300" rx="300" ry="300" fill="#000000" stroke="none" pointer-events="all"/>
+        <ellipse cx="380" cy="140" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="25" pointer-events="all"/>
+        <ellipse cx="220" cy="140" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="25" pointer-events="all"/>
+        <ellipse cx="220" cy="300" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="25" pointer-events="all"/>
+        <ellipse cx="220" cy="460" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="25" pointer-events="all"/>
+        <ellipse cx="380" cy="460" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="25" pointer-events="all"/>
+        <ellipse cx="380" cy="300" rx="40" ry="40" fill="none" stroke="#ffffff" stroke-width="25" pointer-events="all"/>
+        <path d="M 260 140 L 340 140" fill="none" stroke="#ffffff" stroke-width="25" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 220 260 L 220 180" fill="none" stroke="#ffffff" stroke-width="25" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 220 340 L 220 420" fill="none" stroke="#ffffff" stroke-width="25" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 260 300 L 340 300" fill="none" stroke="#ffffff" stroke-width="25" stroke-miterlimit="10" pointer-events="stroke"/>
+        <path d="M 260 460 L 340 460" fill="none" stroke="#ffffff" stroke-width="25" stroke-miterlimit="10" pointer-events="stroke"/>
     </g>
 </svg>
