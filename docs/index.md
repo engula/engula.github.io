@@ -1,7 +1,3 @@
----
-date: 2021-09-01
----
-
 # ![Engula](images/logo-wide.png)
 
 ---
@@ -32,7 +28,10 @@ Fortunately, open-source projects have significantly lowered the bar for homebre
 Nowadays, tools like RocksDB and gRPC enable us to build a decent standalone database with much less effort.
 However, when it comes to distributed databases and then cloud databases, things are still tough.
 
-So we decided to build Engula, an extensible storage engine that leverages elastic resources to deliver reliable, cost-effective, high-performance services.
+So we decided to build Engula, a cloud-native storage engine that leverages elastic resources to deliver reliable, cost-effective, high-performance services.
+It provides composable components like caching, logging, and replication for us to build on top of.
+It also provides operational tools for debugging, monitoring, data migration, and capacity management, etc.
+It is cross-platform and vendor-independent, allows flexible deployment on local hosts, private and public cloud platforms.
 **Engula's mission is to empower engineers to build next-generation data infrastructures with less effort and more confidence.**
 
 We believe this is the storage engine we want when we build the next database.
