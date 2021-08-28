@@ -17,7 +17,7 @@ We have databases for different workloads, OLTP, OLAP, HTAP, HSAP, HTSAP (Hybrid
 We have databases for different data models, key-value, document, relational, time series, graph, object, vector, and multi-model.
 We also have domain-specific databases for the internet, medicine, manufacture, life science, machine learning, etc.
 Modern businesses are so varied that one database does not fit all.
-And some businesses are so valuable that it is worth building specialized databases to save costs or provide better services.
+And some businesses are so valuable that it is worth building specialized databases to save costs and provide better services.
 
 Besides that, admit it or not, we engineers just love to craft our databases.
 It is so fun and proud to build a new database, make it into production, and see it serves well.
@@ -29,9 +29,9 @@ Nowadays, tools like RocksDB and gRPC enable us to build a decent standalone dat
 However, when it comes to distributed databases and then cloud databases, things are still tough.
 
 So we decided to build Engula, a cloud-native storage engine that leverages elastic resources to deliver reliable, cost-effective, high-performance services.
-It provides composable components like caching, logging, and replication for us to build on top of.
-It also provides operational tools for debugging, monitoring, data migration, and capacity management, etc.
-It is cross-platform and vendor-independent, allows flexible deployment on local hosts, private and public cloud platforms.
+It provides composable components for caching, logging, scheduling, and replication to save our troubles.
+It also provides debugging, monitoring, data migration, and capacity management tools to make our operation and maintenance easier.
+It is cross-platform and vendor-independent, allows flexible deployment on local hosts, on-premise servers, and cloud platforms.
 **Engula's mission is to empower engineers to build next-generation data infrastructures with less effort and more confidence.**
 
 We believe this is the storage engine we want when we build the next database.
