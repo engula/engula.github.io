@@ -1,10 +1,14 @@
 # ![Engula](images/logo-wide.png)
 
+<div style="text-align:center">
+    <h2>Empower engineers to build reliable and cost-effective databases with less effort and more confidence.</h2>
+</div>
+
 ---
 
-Building databases is hard.
+Building databases is challenging.
 Take a standalone database as an example.
-We need to consider the file format, data structure, cache, optimizer, transaction, wire protocol, etc.
+We need to consider the file format, data structure, cache, optimizer, transaction, wire protocol.
 If this is not hard enough, then look at a distributed database.
 We are talking about sharding, scheduling, consistency, availability, parallel processing, distributed transactions, etc.
 If that is still not formidable, how about a distributed database on the cloud?
@@ -28,11 +32,10 @@ Fortunately, open-source projects have significantly lowered the bar for homebre
 Nowadays, tools like RocksDB and gRPC enable us to build a decent standalone database with much less effort.
 However, when it comes to distributed databases and then cloud databases, things are still tough.
 
-So we decided to build Engula, a cloud-native storage engine that leverages elastic resources to deliver reliable, cost-effective, high-performance services.
-It provides composable components for caching, logging, scheduling, and replication to save our troubles.
-It also provides debugging, monitoring, data migration, and capacity management tools to make our operation and maintenance easier.
+So we decided to build Engula, a cloud-native storage engine that leverages elastic resources to deliver reliable, cost-effective services.
+It provides components for caching, logging, scheduling, and replication to save our troubles.
+It also provides tools for debugging, monitoring, data migration, and capacity management to make our operation and maintenance easier.
 It is cross-platform and vendor-independent, allows flexible deployment on local hosts, on-premise servers, and cloud platforms.
-**Engula's mission is to empower engineers to build next-generation data infrastructures with less effort and more confidence.**
 
 We believe this is the storage engine we want when we build the next database.
 We are excited about this future, and we welcome everyone to [join](https://github.com/engula/engula) it!
