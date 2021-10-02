@@ -296,13 +296,12 @@ What we can say is that the basic idea works in our tests.
 ## Conclusion
 
 Well, that's all we did and learned last month in this demo.
-The conclusions we get so far are as follow:
+The conclusions we get so far are as follows:
 
-- A well-optimized database on a single node is capable of serving most real-world applications.
-  We should strive to build a storage engine that runs blazing fast on a single node first.
-- The unbundled, cloud-native architecture we propose does work but requires considerably more CPU and network bandwidth.
+- **The unbundled, cloud-native architecture we propose does work.**
+  The architecture makes the storage engine more elastic, providing flexible ways to leverage resources across multiple nodes.
+- However, transferring data between different components requires considerably more CPU and network bandwidth.
   There is no silver bullet. A cloud-native architecture may or may not be cost-effective depending on the workload.
-  But we are sure that an unbundled storage engine provides flexible ways to leverage resources across multiple nodes.
 - For the read performance, using remote storage without cache is not practical due to the excessive network bandwidth it requires.
   We should try our best to avoid unnecessary cache misses, which is the key to reduce long-tail latency.
 - For the write performance, background jobs like flushes and compactions have significant effects on stability.
@@ -310,6 +309,8 @@ The conclusions we get so far are as follow:
 - Network bandwidth is a bigger problem than we thought.
   Being too aggressive in separating every component into different nodes may not be beneficial.
   We should be more deliberate before going too far on this way.
+- A well-optimized database on a single node is capable of serving most real-world applications.
+  We should strive to build a storage engine that runs blazing fast on a single node first.
 - Rust's ecosystem is much better than before.
   Thanks for awesome projects like [tokio](https://github.com/tokio-rs/tokio), [tonic](https://github.com/hyperium/tonic), [tracing](https://github.com/tokio-rs/tracing), and [opentelemetry](https://github.com/open-telemetry/opentelemetry-rust), etc.
   However, it still lacks support for asynchronous file IO, and the AWS SDK for Rust is also too young for production.
