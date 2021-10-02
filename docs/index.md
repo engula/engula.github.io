@@ -35,8 +35,8 @@ However, when it comes to distributed databases and then cloud databases, things
 So we decided to build Engula, a storage engine that empowers engineers to build reliable and cost-effective databases with less effort and more confidence.
 It unbundles different components to leverages elastic resources on the cloud.
 It optimizes internal data structures and configurations to adapt to dynamic workloads.
-It also provides extensible modules and programming interfaces to build higher-level applications.
-Moreover, it is vendor-independent, allows flexible deployment on local hosts, on-premise servers, and cloud platforms.
+It also provides extensible APIs and components to build higher-level applications.
+Moreover, it is platform-independent, allows flexible deployment on local hosts, on-premise servers, and cloud platforms.
 
 We believe this is the storage engine we want when we build the next database.
 We are excited about this future, and we welcome everyone to [join](https://github.com/engula/engula) it!

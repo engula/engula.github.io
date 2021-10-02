@@ -22,3 +22,5 @@ plugins:
 
 nav:
   - Home: index.md
+  - Posts:
+    - "Demo 1": posts/demo-1.md
