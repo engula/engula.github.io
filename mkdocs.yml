@@ -3,6 +3,7 @@ site_url: https://engula.com
 
 repo_name: engula/engula
 repo_url: https://github.com/engula/engula
+edit_uri: https://github.com/engula/engula.github.io/edit/main/docs
 
 theme:
   name: material
