@@ -1,9 +1,8 @@
-name: deploy 
+name: deploy
 
 on:
   push:
-    branches: 
-      - issue-2
+    branches:
       - main
 
 jobs:
