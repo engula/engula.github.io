@@ -12,6 +12,8 @@ theme:
   features:
     - navigation.instant
     - navigation.tabs
+  icon:
+    repo: fontawesome/brands/github
 
 extra:
   social:
