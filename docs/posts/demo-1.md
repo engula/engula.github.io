@@ -1,6 +1,6 @@
 # Demo 1: Towards an Elastic Storage Engine
 
-Last month, we finished our first demo and evaluated it on AWS.
+Congratulations, we have finished our first demo and evaluated it on AWS in September 2021.
 This demo is a proof of concept about an elastic storage engine on the cloud.
 
 In this post, we first describe the architecture and implementation of the demo.
@@ -321,10 +321,10 @@ We also want to thank our early contributors for participating in such an immatu
 
 ## What's Next
 
-In this demo, we have explored the path towards an elastic storage engine, which is our first design goal.
+In this demo, we have explored the path toward an elastic storage engine, which is our first design goal.
 Our second design goal is to make the storage engine adaptive, which means that it should adjust its internal data structure to optimize for dynamic workloads.
 
-**So, in the next demo, we will explore the path towards an adaptive storage engine.**
+**So, in the next demo, we will explore the path toward an adaptive storage engine.**
 The next demo will be more challenging than ever because we haven't found any practical references in the industry yet.
 We still need some time to figure out the roadmap and will share it on [Github](https://github.com/engula/engula) as soon as possible.
 Meanwhile, if you want to know how it may look in advance, you can check [this paper](https://stratos.seas.harvard.edu/publications/design-continuums-and-path-toward-self-designing-key-value-stores-know-and).

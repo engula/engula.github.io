@@ -19,6 +19,9 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/engula
+  analytics:
+    provider: google
+    property: G-FHW7MJB9NB
 
 plugins:
   - git-revision-date
