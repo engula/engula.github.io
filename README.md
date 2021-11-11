@@ -1,6 +1,6 @@
 # The Engula Website
 
-This repository hosts the source code of [Engula website](http://engula.com/).
+This repository hosts the source code of [Engula website](https://engula.io/).
 
 ## Requirements
 
