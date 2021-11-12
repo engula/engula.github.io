@@ -26,7 +26,12 @@ extra:
 plugins:
   - git-revision-date
 
+markdown_extensions:
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
 nav:
   - Home: index.md
   - Posts:
     - "Demo 1": posts/demo-1.md
+    - "Community": posts/community-project.md
