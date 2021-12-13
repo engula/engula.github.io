@@ -19,6 +19,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/engula
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/engulaio
   analytics:
     provider: google
     property: G-FHW7MJB9NB
@@ -30,3 +32,4 @@ nav:
   - Home: index.md
   - Posts:
     - "Demo 1": posts/demo-1.md
+    - "Release 0.2": posts/release-0.2.md

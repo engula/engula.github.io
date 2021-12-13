@@ -37,7 +37,7 @@ Engula's design goals are as follows:
 
 - Elastic: takes advantage of elastic resources on the cloud
 - Adaptive: adapts to dynamic workloads and diverse applications
-- Extensible: provides pluggable APIs and modules for customization
+- Extensible: provides pluggable interfaces and implementations for customization
 - Platform independent: allows flexible deployments on local hosts, on-premise servers, and cloud platforms
 
 We believe this is the storage engine we want when we build the next database.
