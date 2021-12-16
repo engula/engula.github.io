@@ -37,6 +37,6 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Posts:
-    - "Demo 1": posts/demo-1.md
-    - "Release 0.2": posts/release-0.2.md
     - "Tutorial 0.2": posts/tutorial-0.2.md
+    - "Release 0.2": posts/release-0.2.md
+    - "Demo 1": posts/demo-1.md
