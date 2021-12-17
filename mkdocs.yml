@@ -19,6 +19,8 @@ extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/engula
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/engulaio
   analytics:
     provider: google
     property: G-FHW7MJB9NB
@@ -26,7 +28,15 @@ extra:
 plugins:
   - git-revision-date
 
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+
 nav:
   - Home: index.md
   - Posts:
+    - "Tutorial 0.2": posts/tutorial-0.2.md
+    - "Release 0.2": posts/release-0.2.md
     - "Demo 1": posts/demo-1.md
