@@ -57,7 +57,7 @@ async fn main() -> Result<()> {
 }
 ```
 
-Now, your can run the example with:
+Now, you can run the example with:
 
 ```sh
 cargo +nightly run
@@ -84,15 +84,17 @@ async fn main() -> Result<()> {
 }
 ```
 
-Nice, everything just works! But a storage engine that simply stores data in memory and local files doesn't seem very exciting, right? Fine, don't worry, we get a third kernel for you, a gRPC kernel. This kernel is more interesting because it makes Engula very different from traditional storage engines.
+You can run it again and see what it will done to your `/tmp/engula`.
+
+Nice, you have tried two kernels now, and everything just works. But a storage engine that can store data in memory and local files doesn't seem very exciting, right? Fine, but don't worry, we get a third kernel for you, a gRPC kernel. This kernel is more interesting because it makes Engula very different from other storage engines you may ever seen.
 
 ## Remote kernel
 
-**A gRPC kernel allows you to run an embedded engine along with your database while storing data in a remote kernel.** The remote kernel, in turn, stores data in a remote journal and a remote storage. You don't need to know how they work. You just need to understand their relationship to connect them together.
+A gRPC kernel allows you to run an embedded engine along with your database while storing data in a remote kernel. The remote kernel, in turn, stores data in a remote journal and a remote storage. But you don't need to know how they work for now. You just need to understand their relationship to connect them together.
 
 ![Kernel](../images/tutorial-0.2-kernel.drawio.svg)
 
-Simply speaking, to use a gRPC kernel, you need to start a journal server and a storage server first. Then start a kernel server that connects to the journal server and the storage server. Then you can connect to the kernel server and run your engine on it. Engula 0.2 provides an `engula` binary to start those servers. It's not complicated. Let's try it out!
+Simply speaking, to use a gRPC kernel, you need to start a journal server and a storage server first. Then start a kernel server that connects to the journal server and the storage server. After that, you can connect to the kernel server and run your engine on it. Engula 0.2 provides an `engula` binary to start those servers. It's not complicated. Let's try it out!
 
 You need to install the `engula` binary first:
 
@@ -107,15 +109,15 @@ engula journal run 127.0.0.1:10001 --mem
 engula storage run 127.0.0.1:10002 --mem
 ```
 
-And then start a kernel server:
+And then start a kernel server connecting to the journal server and the storage server:
 
 ```sh
 engula kernel run 127.0.0.1:10003 --journal 127.0.0.1:10001 --storage 127.0.0.1:10002 --mem
 ```
 
-Now, we have set up the remote kernel. You may notice the `--mem` option at the end of each command. It lets you choose how to store data. Using `--mem` means that the server stores data in memory. You can also try `--file <PATH>` instead to store data in local files.
+Now, we have set up a remote kernel. You may notice the `--mem` option at the end of each command. It lets you choose how to store data. Using `--mem` means that the server stores data in memory. You can also try `--file <PATH>` instead to store data in local files.
 
-Finally, you can run the engine on the remote kernel like this:
+Finally, you can connect to the remote kernel and run the engine on it:
 
 ```rust
 use engula::engine::hash::{Engine, Result};
@@ -130,12 +132,12 @@ async fn main() -> Result<()> {
 }
 ```
 
-That's it. You only need to import the `engula::kernel::grpc::Kernel` and connect to the kernel server. Then you can use the engine exactly the same as before, except that your engine is now powered by a remote kernel.
+That's it. You only need to import the `engula::kernel::grpc::Kernel` and connect to the kernel server. Then you can use the engine exactly the same as before, except that your engine is now powered by a remote kernel!
 
-Well, the idea may not sound so exciting at this moment, as our remote kernel is very primitive for now. However, imagine that Engula provides a serverless kernel that scales automatically according to your workload in the future. Then you can build the database with the new kernel to get a serverless database instantly, without changing any other code at all!
+Well, the idea may not sound so exciting at this moment, as our remote kernel is very primitive for now. However, imagine that Engula provides a serverless kernel that scales automatically according to your workload in the future. Then you can build your database with the new kernel to get a serverless database instantly, without changing any other code at all!
 
-You can build a standalone database and a serverless database in the same way. You don't need to pay any unnecessary performance penalty in either case. And we will also help you deploy the database you build. These are the goals of Engula 1.0. Watch us!
+Engula enables you to build a standalone database and a serverless database in the same way. You don't need to pay any unnecessary performance penalty in either case. And we will also help you deploy your database. These are the goals of Engula 1.0. Watch us!
 
 ## Get more information
 
-If you want to know more about Engula, you can start with [the design document](https://github.com/engula/engula/blob/main/docs/design.md). That's all for Engula 0.2. See you in the next release!
+That's all for Engula 0.2. If you want to know more about Engula, you can start with [the design document](https://github.com/engula/engula/blob/main/docs/design.md). See you in the next release!
