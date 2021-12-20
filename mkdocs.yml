@@ -7,6 +7,7 @@ edit_uri: https://github.com/engula/engula.github.io/edit/main/docs
 
 theme:
   name: material
+  custom_dir: overrides
   logo: images/favicon.svg
   favicon: images/favicon.svg
   features:
