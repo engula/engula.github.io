@@ -36,9 +36,7 @@
     {% include ".icons/material/pencil.svg" %}
     </a>
     {% endif %}
-    {% if not "\x3ch1" in page.content %}
-    <h1>{{ page.title | d(config.site_name, true)}}</h1>
-    {% endif %}
+    <h1>{{ page.meta.title | d(page.title, true) | d(config.site_name, true)}}</h1>
     {% if page and page.meta and (
         page.meta.git_revision_date_localized or
         page.meta.revision_date

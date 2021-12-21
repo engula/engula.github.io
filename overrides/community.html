@@ -30,7 +30,27 @@
     {% endif %}
 {% endblock %}
 
+<!-- Navigation -->
 {% block site_nav %}
+
+<!-- Table of contents -->
+{% if page.toc and not "toc.integrate" in features %}
+    {% if page and page.meta and page.meta.hide %}
+    {% set hidden = "hidden" if "toc" in page.meta.hide %}
+    {% endif %}
+    <div
+    class="md-sidebar md-sidebar--secondary"
+    data-md-component="sidebar"
+    data-md-type="toc"
+    {{ hidden }}
+    >
+    <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+        {% include "partials/toc.html" %}
+        </div>
+    </div>
+    </div>
+{% endif %}
 {% endblock %}
 
 {% block content %}
@@ -39,8 +59,6 @@
     {% include ".icons/material/pencil.svg" %}
     </a>
     {% endif %}
-    {% if not "\x3ch1" in page.content %}
-    <h1>{{ page.title | d(config.site_name, true)}}</h1>
-    {% endif %}
+    <h1>{{ page.meta.title | d(page.title, true) | d(config.site_name, true)}}</h1>
     {{ page.content }}
 {% endblock %}
