@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block site_meta %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    {% if page and page.meta and page.meta.description %}
+    <meta name="description" content="{{ page.meta.description }}">
+    <meta name="twitter:description" content="{{ page.meta.description }}">
+    {% elif config.site_description %}
+    <meta name="description" content="{{ config.site_description }}">
+    <meta name="twitter:description" content="{{ config.site_description }}">
+    {% endif %}
+    {% if page and page.meta and page.meta.author %}
+    <meta name="author" content="{{ page.meta.author }}">
+    {% elif config.site_author %}
+    <meta name="author" content="{{ config.site_author }}">
+    {% endif %}
+    {% if page.canonical_url %}
+    <link rel="canonical" href="{{ page.canonical_url }}">
+    {% endif %}
+    <link rel="icon" href="{{ config.theme.favicon | url }}">
+    <meta name="generator" content="mkdocs-{{ mkdocs_version }}, mkdocs-material-8.1.3">
+    <meta name="twitter:site" content="engula.io">
+    <meta name="twitter:image" content="https://engula.io/images/logo.png">
+    <meta name="twitter:card" content="summary">
+    {% if page and page.meta and page.meta.title %}
+    <meta name="twitter:title" content="{{ page.meta.title }}"/>
+    {% elif config.site_name %}
+    <meta name="twitter:title" content="{{ config.site_name }}"/>
+    {% endif %}
+{% endblock %}
+
+<!-- Navigation -->
+{% block site_nav %}
+
+<!-- Table of contents -->
+{% if page.toc and not "toc.integrate" in features %}
+    {% if page and page.meta and page.meta.hide %}
+    {% set hidden = "hidden" if "toc" in page.meta.hide %}
+    {% endif %}
+    <div
+    class="md-sidebar md-sidebar--secondary"
+    data-md-component="sidebar"
+    data-md-type="toc"
+    {{ hidden }}
+    >
+    <div class="md-sidebar__scrollwrap">
+        <div class="md-sidebar__inner">
+        {% include "partials/toc.html" %}
+        </div>
+    </div>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+    {% if page.edit_url %}
+    <a href="{{ page.edit_url }}" title="{{ lang.t('edit.link.title') }}" class="md-content__button md-icon">
+    {% include ".icons/material/pencil.svg" %}
+    </a>
+    {% endif %}
+    <h1>{{ page.meta.title | d(page.title, true) | d(config.site_name, true)}}</h1>
+    {{ page.content }}
+{% endblock %}

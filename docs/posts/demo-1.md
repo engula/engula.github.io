@@ -1,4 +1,7 @@
-# Demo 1: Towards an Elastic Storage Engine
+---
+title: 'Demo 1: Towards an Elastic Storage Engine'
+date: 2021-10-03
+---
 
 Congratulations, we have finished our first demo and evaluated it on AWS in September 2021.
 This demo is a proof of concept about an elastic storage engine on the cloud.
