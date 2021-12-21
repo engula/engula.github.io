@@ -1,4 +1,7 @@
-# Tutorial 0.2
+---
+title: Tutorial 0.2
+date: 2021-12-17
+---
 
 Welcome to the tutorial for Engula 0.2! In this tutorial, we'll show you how to use an Engula engine.
 
