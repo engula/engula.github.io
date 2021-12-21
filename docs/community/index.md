@@ -9,7 +9,7 @@ Engula is well-supported by its active community. If you haven't already, come f
 
 Engula is developed by an open and friendly community. Everybody is cordially welcome to join the community and contribute to Engula. We have a [contributing guide](https://github.com/engula/engula/blob/main/CONTRIBUTING.md) to help you get involved in the Engula project.
 
-See our [contributors graph](https://github.com/engula/engula/graphs/contributors) for all of contributors.
+See our [contributors graph](https://github.com/engula/engula/graphs/contributors) for all contributors.
 
 Be proud of what you've achieved! It's encouraged to add yourself to the contributor metal wall below, and share your contributions.
 
