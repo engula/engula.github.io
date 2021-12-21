@@ -1,0 +1,8 @@
+.contributor-avatar {
+    width: 50px;
+    border-radius: 50%;
+}
+
+td {
+    vertical-align: middle !important;
+}

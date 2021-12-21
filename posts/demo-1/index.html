@@ -1,0 +1,1151 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    
+    
+    
+    <link rel="canonical" href="https://engula.io/posts/demo-1/">
+    
+    <link rel="icon" href="../../images/favicon.svg">
+    <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.1.3">
+    <meta name="twitter:site" content="engula.io">
+    <meta name="twitter:image" content="https://engula.io/images/logo.png">
+    <meta name="twitter:card" content="summary">
+    
+    <meta name="twitter:title" content="Demo 1: Towards an Elastic Storage Engine"/>
+    
+
+    
+      
+        <title>Demo 1: Towards an Elastic Storage Engine - Engula</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.edf004c2.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/contributor.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script>function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","G-FHW7MJB9NB"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&gtag("event","search",{search_term:this.value})}),"undefined"!=typeof location$&&location$.subscribe(function(e){gtag("config","G-FHW7MJB9NB",{page_path:e.pathname})})})</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FHW7MJB9NB"></script>
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#architecture-and-implementation" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Engula" class="md-header__button md-logo" aria-label="Engula" data-md-component="logo">
+      
+  <img src="../../images/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Engula
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Demo 1: Towards an Elastic Storage Engine
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/engula/engula/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    engula/engula
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../tutorial-0.2/" class="md-tabs__link md-tabs__link--active">
+        Posts
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../community/" class="md-tabs__link">
+      Community
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Engula" class="md-nav__button md-logo" aria-label="Engula" data-md-component="logo">
+      
+  <img src="../../images/favicon.svg" alt="logo">
+
+    </a>
+    Engula
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/engula/engula/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    engula/engula
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Posts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Posts" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Posts
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tutorial-0.2/" class="md-nav__link">
+        Tutorial 0.2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../release-0.2/" class="md-nav__link">
+        Release 0.2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Demo 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Demo 1
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-and-implementation" class="md-nav__link">
+    Architecture and Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    Evaluation
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-versus-remote" class="md-nav__link">
+    Local versus Remote
+  </a>
+  
+    <nav class="md-nav" aria-label="Local versus Remote">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    Put
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    Get
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-native-architecture" class="md-nav__link">
+    Cloud-Native Architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud-Native Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    Benchmark
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's Next
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../community/" class="md-nav__link">
+        Community
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#architecture-and-implementation" class="md-nav__link">
+    Architecture and Implementation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#evaluation" class="md-nav__link">
+    Evaluation
+  </a>
+  
+    <nav class="md-nav" aria-label="Evaluation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#local-versus-remote" class="md-nav__link">
+    Local versus Remote
+  </a>
+  
+    <nav class="md-nav" aria-label="Local versus Remote">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#put" class="md-nav__link">
+    Put
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    Get
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-native-architecture" class="md-nav__link">
+    Cloud-Native Architecture
+  </a>
+  
+    <nav class="md-nav" aria-label="Cloud-Native Architecture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deployment" class="md-nav__link">
+    Deployment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark" class="md-nav__link">
+    Benchmark
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#whats-next" class="md-nav__link">
+    What's Next
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+    
+    <a href="https://github.com/engula/engula.github.io/edit/main/docs/posts/demo-1.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+    </a>
+    
+    <h1>Demo 1: Towards an Elastic Storage Engine</h1>
+    
+        <div class="md-source-file">
+  <small>
+    
+      
+        Created:
+        2021-10-03
+      
+      Last update:
+      2021-12-21
+    
+  </small>
+</div>
+    
+    <p>Congratulations, we have finished our first demo and evaluated it on AWS in September 2021.
+This demo is a proof of concept about an elastic storage engine on the cloud.</p>
+<p>In this post, we first describe the architecture and implementation of the demo.
+We then describe the experiments we conducted on the demo and share some lessons we learned.</p>
+<h2 id="architecture-and-implementation">Architecture and Implementation</h2>
+<p>The architecture of the demo is as follow:</p>
+<p><img alt="Architecture" src="../../images/demo-1-architecture.drawio.svg" /></p>
+<p>The top half shows a classic LSM-Tree structure similar to RocksDB.
+However, the implementation is much simpler due to the limited time and workforce.
+Specifically, we only support single key-value <code>Put</code> and <code>Get</code>.
+For puts, all entries are first appended to the journal and then inserted into the memtable.
+When the size of the memtable reaches a threshold, the database flushes it to a file in the storage.
+When the number of files in the storage reaches a threshold, the database triggers compactions to merge small files into larger ones.
+For gets, the database examines the mutable memtable, the immutable memtable, and individual storage files in order (there are no filters).
+Moreover, to achieve concurrent flushes and compactions, we hash the memtable and the storage into a few shards.</p>
+<p>The bottom half is what makes the demo interesting.
+It shows the major difference between the demo and other traditional storage engines.
+First, we unbundle the journal, storage, and compaction components, enabling us to switch each component to another implementation without affecting others.
+Then for each component, we provide a local implementation and a remote implementation.
+The local implementation runs in the same process with the database, while the remote implementation wraps the local one into a gRPC service that runs as a standalone process.</p>
+<p>For more implementation details, please check the code <a href="https://github.com/engula/engula/tree/demo-1">here</a>.</p>
+<h2 id="evaluation">Evaluation</h2>
+<p>Now let's evaluate the demo we described above.
+Our goal here is to explore the potential of an elastic storage engine while comparing it to a traditional one.
+We should note that the demo's absolute performance doesn't matter a lot.
+The demo's implementation is over-simplified, so its absolute performance provides no reference value outside of it.</p>
+<p>In the following sections, we conduct two groups of experiments on the demo.
+The first group compares the performance between local and remote components with a simple deployment.
+The second group employs a more sophisticated deployment to demonstrate a cloud-native architecture specific to AWS.</p>
+<h3 id="local-versus-remote">Local versus Remote</h3>
+<p>Let's start with a simple deployment.
+We run local and remote components on two different EC2 instances of the same type to make the comparison straightforward.
+Specifically, we choose two <code>r6gd.2xlarge</code> instances located at <code>us-east-2</code>.
+Each <code>r6gd.2xlarge</code> instance comes with a local SSD.
+In addition, we attach a <code>gp3</code> EBS (5000 IOPS and 500MB/s throughput) to each instance.
+This extra disk allows us to separate the journal and the storage to reduce IO interference.
+As for the network performance between these instances, the latency is about 0.1ms, and the bandwidth is up to 10 Gbps.</p>
+<p>The deployment is as follow:</p>
+<p><img alt="Local/Remote Deployment" src="../../images/demo-1-local-remote-deployment.drawio.svg" /></p>
+<p>We also develop a purpose-built <a href="https://github.com/engula/engula/blob/demo-1/engula/bin/engula.rs">benchmark tool</a> that allows us to switch between local and remote components in a configuration file.
+For all experiments in this section:</p>
+<ul>
+<li>The benchmark tool always runs on node 1.</li>
+<li>For the local setup, the local journal, storage, and compaction run in the same process with the benchmark tool on node 1.</li>
+<li>For the remote setup, the remote journal, storage, and compaction run as standalone processes on node 2, and the benchmark tool communicates with them through gRPC.</li>
+</ul>
+<p>Moreover, due to some limitations in the demo, we evaluate read-only and write-only performance separately.</p>
+<h4 id="put">Put</h4>
+<p>Now let's evaluate the <code>Put</code> performance with the local and remote setups.
+For more details about the specific setups, please check the <a href="https://github.com/engula/engula/blob/demo-1/engula/etc/put-local.toml">local</a> and <a href="https://github.com/engula/engula/blob/demo-1/engula/etc/put-remote.toml">remote</a> configuration files.</p>
+<p>The benchmark results <em>without compactions</em> are as follows:</p>
+<p><img alt="Put Performance" src="../../images/demo-1-put-performance.drawio.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Table 1</th>
+<th>QPS</th>
+<th>Latency (P95/P99/P999)</th>
+<th>CPU Usage (Sum of two nodes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td>1.01 million</td>
+<td>9.2/12.0/17.5 ms</td>
+<td>7.4 cores</td>
+</tr>
+<tr>
+<td>Remote</td>
+<td>1.04 million</td>
+<td>9.3/12.2/17.7 ms</td>
+<td>9.6 cores</td>
+</tr>
+</tbody>
+</table>
+<p>Figures 1-3 show the runtime statistics of the local setup (on the left) and the remote setup (on the right).</p>
+<p><strong>First of all, we are excited to see that both setups achieve more than 1 million puts per second with <code>sync</code> enabled.</strong>
+As far as we know, 99% of applications never reach 1 million puts per second throughout their lifetime, which means that a well-optimized database can serve all these applications with a single compute node.
+We also notice that there are some fluctuations in Figures 1 and 3.
+These fluctuations occur whenever the memtable is flushed, which is expected due to the depleted CPU on node 1 (8 cores).</p>
+<p>On the other hand, Table 1 shows that the remote setup achieves similar QPS and latency as the local one.
+<strong>However, the remote setup consumes 30% more CPU due to extra work on RPC and networking, which makes the remote setup unappealing in such a scenario.</strong></p>
+<p>Next, we enable compactions and rerun the benchmarks.</p>
+<p><img alt="Put Performance with Compactions" src="../../images/demo-1-put-performance-with-compactions.drawio.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Table 2</th>
+<th>QPS</th>
+<th>Latency (P95/P99/P999)</th>
+<th>CPU Usage (Sum of two nodes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td>0.80 million</td>
+<td>11.7/15.5/35.2 ms</td>
+<td>7.6 cores</td>
+</tr>
+<tr>
+<td>Remote</td>
+<td>0.99 million</td>
+<td>8.4/11.2/21.4 ms</td>
+<td>12.4 cores</td>
+</tr>
+</tbody>
+</table>
+<p><strong>This time, the local setup performs worse than before because compactions introduce excessive CPU contentions on node 1.</strong>
+In contrast, the remote setup performs similarly well because node 2 still has sufficient CPU for compactions.
+But we need to consider what we pay and what we get here.
+<strong>Table 2 shows that the remote setup pays 63% more CPU for 25% higher QPS, which may or may not be a cost-effective deal depending on the application.</strong></p>
+<p>Nevertheless, the remote setup does make the storage engine more elastic.
+Imagine that as the dataset grows, we can partition the remote components and scatter them into multiple nodes.
+In this way, we can extend the capability of a database with a single compute node as much as possible to avoid distributed transactions.</p>
+<h4 id="get">Get</h4>
+<p>Now let's evaluate the <code>Get</code> performance with the local and remote setups.
+For more details about the specific setups, please check the <a href="https://github.com/engula/engula/blob/demo-1/engula/etc/get-local.toml">local</a> and <a href="https://github.com/engula/engula/blob/demo-1/engula/etc/get-remote.toml">remote</a> configuration files.</p>
+<p>It is important to note that we keep all storage files in memory during the following experiments, which is a compromise due to Rust's lack of support for asynchronous random access file IO and our limited human resources.
+We decide to live with that because IO performance is not our primary concern here.</p>
+<p>The benchmark results <em>without cache</em> are as follows:</p>
+<p><img alt="Get Performance" src="../../images/demo-1-get-performance.drawio.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Table 3</th>
+<th>QPS</th>
+<th>Latency (P95/P99/P999)</th>
+<th>CPU Usage (Sum of two nodes)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td>0.68 million</td>
+<td>0.03/0.03/0.03 ms</td>
+<td>8.0 cores</td>
+</tr>
+<tr>
+<td>Remote</td>
+<td>0.10 million</td>
+<td>3.1/3.7/6.6 ms</td>
+<td>10.5 cores</td>
+</tr>
+</tbody>
+</table>
+<p>Figures 7-10 show the runtime statistics of the local setup (on the left) and the remote setup (on the right).</p>
+<p>For the local setup, the latency is very low since all data stays in memory.
+Hence, the benchmark is entirely CPU-bound, and it squeezes all CPUs on node 1.</p>
+<p>For the remote setup, the performance is much worse than the local one.
+The reason for this bad performance is apparent, though.
+Without cache, every read involves one or more RPCs to retrieve data blocks from the remote storage.
+Figure 10 shows that the network bandwidth exhausts, although both nodes still have some spare CPU.
+This situation is very undesired because if the network bandwidth of the compute node becomes the bottleneck, all remote components are affected, and adding more nodes is not going to help.</p>
+<p><strong>Therefore, we have to admit that using remote storage without cache is not practical.</strong></p>
+<p>So let's enable cache and rerun the benchmarks.</p>
+<p><img alt="Get Performance" src="../../images/demo-1-get-performance-with-cache.drawio.svg" /></p>
+<table>
+<thead>
+<tr>
+<th>Table 4</th>
+<th>QPS</th>
+<th>Latency (P95/P99/P999)</th>
+<th>CPU Usage (Sum of two instances)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Local</td>
+<td>0.70 million</td>
+<td>0.03/0.03/0.05 ms</td>
+<td>8.0 cores</td>
+</tr>
+<tr>
+<td>Remote</td>
+<td>0.72 million</td>
+<td>2.0/6.2/12.3 ms</td>
+<td>8.8 cores</td>
+</tr>
+<tr>
+<td>Remote 2</td>
+<td>1.41 million</td>
+<td>0.1/7.1/13.2 ms</td>
+<td>15.8 cores</td>
+</tr>
+</tbody>
+</table>
+<p>According to our statistics, the cache we introduce provides a 0.98 cache hit ratio, which boosts the performance of the remote setup to the same level as the local one.
+<strong>However, the remote setup still suffers a long-tail latency, which is inevitable unless we cache all data on the compute node.</strong></p>
+<p>On the other hand, Figure 13 shows that node 1 becomes the bottleneck of both setups now.
+But node 2 is almost idle here.
+So can we do something with it?
+Well, we can run benchmarks on both nodes against the same set of remote components.
+This setup simulates the use case of running multiple read replicas on a cloud database.</p>
+<p>Table 4 (Remote 2) shows the result of running benchmarks on node 1 and node 2 concurrently against the same set of remote components.
+<strong>We successfully utilize all CPUs on both nodes and achieve 1.41 million gets per second.</strong>
+<strong>This setup reveals the advantage of remote components, providing flexible ways to leverage available resources across nodes.</strong></p>
+<h3 id="cloud-native-architecture">Cloud-Native Architecture</h3>
+<p>While the first group of experiments gives some insights about the demo, they haven't shown the big picture yet.
+In previous experiments, we run the remote journal, storage, and compaction on the same node, which is not required.
+We can be more aggressive in separating these components into individual nodes and choose appropriate instance types and disks.</p>
+<p>Furthermore, the demo provides other kinds of storage components that make things more interesting:</p>
+<ul>
+<li>SSTable storage: stores files in <a href="https://www.igvita.com/2012/02/06/sstable-and-log-structured-storage-leveldb/">SSTable</a> format on file system or S3</li>
+<li>Parquet storage: stores files in <a href="https://parquet.apache.org/">Parquet</a> format on file system or S3</li>
+<li>Hybrid storage: provides an abstraction to read, write, and <code>SELECT</code> files on different storage components</li>
+</ul>
+<p>To showcase these components, we construct a hybrid storage on top of an SSTable storage on a local file system and a Parquet storage on S3.
+Specifically, whenever the memtable is flushed, the hybrid storage writes one copy to the SSTable storage and another copy to the Parquet storage.
+The hybrid storage always reads from the SSTable storage to serve row-oriented, latency-sensitive reads.
+On the other hand, the benefits of adding the Parquet storage here are threefold:</p>
+<ul>
+<li>Offloads compaction reads from the SSTable storage to make it more stable.</li>
+<li>Leverages S3 to improve durability at low cost.</li>
+<li>Leverages S3 <code>SELECT</code> command to serve analytical workloads efficiently.
+  We can even merge the memtable with the results from Parquet files on S3 to provide <em>real-time, strongly consistent</em> analytical services, which gives us a promising architecture for HTAP.</li>
+</ul>
+<p>Finally, we get a cloud-native architecture as follow:</p>
+<p><img alt="Cloud-Native Architecture" src="../../images/demo-1-cloud-native-architecture.drawio.svg" /></p>
+<h4 id="deployment">Deployment</h4>
+<p>To make a cost-effective deployment for the architecture above, we need to understand the characteristics of different components first:</p>
+<ul>
+<li>The journal requires minimal CPU and memory.
+  But it can benefit from a premium disk to write at low latency.</li>
+<li>The storage requires a medium amount of CPU and memory and a disk with enough capacity and decent performance.</li>
+<li>The compaction requires a medium amount of CPU and memory but doesn't need any instance storage.
+  Moreover, since compactions are background jobs that can fail without affecting foreground services, they don't require reliable resources.
+  AWS provides EC2 Spot Instances at up to a 90% discount for such fault-tolerant workloads.</li>
+<li>The compute/benchmark requires a large amount of CPU and memory, and it has to run reliably.</li>
+</ul>
+<p>Moreover, let's assume that we are running an OLTP workload that writes at 200MB/s in 1KB value size.
+Given such a workload and the characteristics above, we decide to give the following setup a try:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Instance name</th>
+<th>Hourly cost</th>
+<th>vCPU</th>
+<th>Memory</th>
+<th>Storage</th>
+<th>Network bandwidth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compute</td>
+<td>m5.2xlarge</td>
+<td>$0.384</td>
+<td>8</td>
+<td>32 GiB</td>
+<td></td>
+<td>Up to 10 Gbps</td>
+</tr>
+<tr>
+<td>Journal</td>
+<td>t3.nano</td>
+<td>$0.0052</td>
+<td>2</td>
+<td>0.5 GiB</td>
+<td>io2 (2000 IOPS)</td>
+<td>Up to 5 Gbps</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>r5.xlarge</td>
+<td>$0.252</td>
+<td>4</td>
+<td>32 GiB</td>
+<td>gp3 (5000 IOPS, 500MB/s)</td>
+<td>Up to 10 Gbps</td>
+</tr>
+<tr>
+<td>Compaction</td>
+<td>r5.xlarge</td>
+<td>$0.0418 (Spot Instance)</td>
+<td>4</td>
+<td>32 GiB</td>
+<td></td>
+<td>Up to 10 Gbps</td>
+</tr>
+</tbody>
+</table>
+<h4 id="benchmark">Benchmark</h4>
+<p>Now it's time to see if our beautiful architecture and deployment work.
+For more details about the specific setup, please check the <a href="https://github.com/engula/engula/blob/demo-1/engula/etc/cloud-native.toml">configuration file</a>.
+To make things simple, we only evaluate <code>Put</code> performance here.
+The <code>Get</code> performance of this architecture should be similar to the remote setup above, so we will not discuss it further.</p>
+<p>The benchmark results for <code>Put</code> are as follow:</p>
+<p><img alt="Cloud-Native Put Performance 1" src="../../images/demo-1-cloud-native-put-performance-1.drawio.svg" /></p>
+<p>Well, it works.
+But only for a little while, unfortunately.
+Then the QPS drops, and the latency raises horribly.
+Don't panic. Let's see what's wrong here and fix it.
+Figure 17 shows that the CPU usage is very low, far from the limits of our instances.
+Figure 18 shows that the disk bandwidth is also very low, far from the limits of our provisioned disks.
+So what's left is the network bandwidth, which also looks very low in Figure 19.
+Hmm, we must miss something here.</p>
+<p>It turns out that we neglect a critical factor about the network bandwidth of our instances.
+The "network bandwidth" listed in the table above doesn't tell us all the truth.
+AWS uses <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-network-bandwidth.html">a network I/O credit mechanism</a>.
+<strong>In simple terms, network bandwidth of "Up to 10 Gbps" gives us no guarantee at all.</strong>
+<strong>What we can rely on is the network baseline bandwidth, not the network bandwidth.</strong>
+So we need to find out the baseline bandwidth of our instances:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Instance name</th>
+<th>Hourly cost</th>
+<th>Network bandwidth</th>
+<th>Network baseline bandwidth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compute</td>
+<td>m5.2xlarge</td>
+<td>$0.384</td>
+<td>Up to 10 Gbps</td>
+<td>2.5 Gbps</td>
+</tr>
+<tr>
+<td>Journal</td>
+<td>t3.nano</td>
+<td>$0.0052</td>
+<td>Up to 5 Gbps</td>
+<td><strong>0.032 Gbps</strong></td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>r5.xlarge</td>
+<td>$0.252</td>
+<td>Up to 10 Gbps</td>
+<td>1.25 Gbps</td>
+</tr>
+<tr>
+<td>Compaction</td>
+<td>r5.xlarge</td>
+<td>$0.0418</td>
+<td>Up to 10 Gbps</td>
+<td>1.25 Gbps</td>
+</tr>
+</tbody>
+</table>
+<p>As we can see, <code>t3.nano</code> for the journal only provides a 0.032 Gbps (4MB/s) baseline bandwidth, which explains the result we get in Figure 19 very well.
+But what about the initial high performance we observe?
+That comes from the credits AWS gives the instance when its usage is below the baseline bandwidth.
+However, the credits are limited, which only allows the instance to burst for a little while.
+<strong>Once the credits exhaust, the network bandwidth drops to the baseline.</strong></p>
+<p>Therefore, we should carefully review the network baseline bandwidth of our previous setup.
+Specifically, to process 200MB/s write throughput for the assumed workload, we need at least 1.6 Gbps network bandwidth.
+In addition, we have to consider the write amplification of different components:</p>
+<ul>
+<li>The compute writes to the journal, flushes to the SSTable storage and the Parquet storage.
+  So the minimal bandwidth it requires is 1.6 * 3 = 4.8 Gbps.</li>
+<li>The journal only needs 1.6 Gbps to receive writes from the compute.</li>
+<li>The storage receives writes from both the compute and compaction, so it requires 3.2 Gbps.</li>
+<li>The compaction reads from the Parquet storage and then writes to both the SSTable and Parquet storage, which requires 3.2 Gbps.</li>
+</ul>
+<p>So, to satisfy the above requirements, we decide to upgrade our setup as follow:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Instance name</th>
+<th>Hourly cost</th>
+<th>Network bandwidth</th>
+<th>Network baseline bandwidth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compute</td>
+<td>m5n.2xlarge</td>
+<td>$0.476</td>
+<td>Up to 25 Gbps</td>
+<td>8.125 Gbps</td>
+</tr>
+<tr>
+<td>Journal</td>
+<td>m5n.large</td>
+<td>$0.119</td>
+<td>Up to 25 Gbps</td>
+<td>2.1 Gbps</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>r5n.xlarge</td>
+<td>$0.298</td>
+<td>Up to 25 Gbps</td>
+<td>4.1 Gbps</td>
+</tr>
+<tr>
+<td>Compaction</td>
+<td>r5n.xlarge</td>
+<td>$0.0418</td>
+<td>Up to 25 Gbps</td>
+<td>4.1 Gbps</td>
+</tr>
+</tbody>
+</table>
+<p><strong>This setup costs us 38% more than the previous one.</strong></p>
+<p>Now let's rerun the benchmark with this setup to see if it is worth it.</p>
+<p><img alt="Cloud-Native Put Performance 2" src="../../images/demo-1-cloud-native-put-performance-2.drawio.svg" /></p>
+<p><strong>Awesome, we finally get everything work as expected!</strong>
+We accomplish our goal to deliver 200,000 puts per second in 1KB value size, which is 200MB/s.
+The latency also looks OK with P99 at about 10ms.
+Figure 23 shows that the network throughput of the compute (the purple one) is less than expected (200MB/s * 3).
+That's because the Parquet storage compresses our files very well.</p>
+<p><strong>On the other hand, we have to note that the resource allocation of this setup is still not optimal.</strong>
+For example, we have to choose <code>m5n.large</code> for the journal instead of <code>t3.nano</code> to get enough network bandwidth.
+But <code>m5n.large</code> costs 20 times as much as <code>t3.nano</code>, and the journal will never use the extra memory on it.</p>
+<p><strong>Besides, the network bandwidth calculation of individual components above is very conservative.</strong>
+For applications that require high durability and availability, we may need three copies of the journal and the storage, which brings 6X write amplification to the compute node.
+Furthermore, as the dataset grows, the compaction has to work more aggressively to maintain a decent read performance.
+For a typical OLTP application, the estimated write amplification caused by compactions can be 10X.
+It will be very challenging to choose appropriate instance types to get optimal resource allocation for different components with such conditions.
+We can think of two possible solutions to reduce network bandwidth for now.
+The first one is to enable compression to trade CPU for network bandwidth.
+The second one is to allow the storage to run some compactions locally when necessary.</p>
+<p>As for S3 SELECT, we can't always get it to work because <a href="https://github.com/awslabs/aws-sdk-rust/issues/239">something</a> is wrong with the AWS SDK for Rust.
+What we can say is that the basic idea works in our tests.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Well, that's all we did and learned last month in this demo.
+The conclusions we get so far are as follows:</p>
+<ul>
+<li><strong>The unbundled, cloud-native architecture we propose does work.</strong>
+  The architecture makes the storage engine more elastic, providing flexible ways to leverage resources across multiple nodes.</li>
+<li>However, transferring data between different components requires considerably more CPU and network bandwidth.
+  There is no silver bullet. A cloud-native architecture may or may not be cost-effective depending on the workload.</li>
+<li>For the read performance, using remote storage without cache is not practical due to the excessive network bandwidth it requires.
+  We should try our best to avoid unnecessary cache misses, which is the key to reduce long-tail latency.</li>
+<li>For the write performance, background jobs like flushes and compactions have significant effects on stability.
+  We should pay attention to the runtime (in particular, the asynchronous runtime in Rust) of the compute node to reduce the interference caused by background jobs.</li>
+<li>Network bandwidth is a bigger problem than we thought.
+  Being too aggressive in separating every component into different nodes may not be beneficial.
+  We should be more deliberate before going too far on this way.</li>
+<li>A well-optimized database on a single node is capable of serving most real-world applications.
+  We should strive to build a storage engine that runs blazing fast on a single node first.</li>
+<li>Rust's ecosystem is much better than before.
+  Thanks for awesome projects like <a href="https://github.com/tokio-rs/tokio">tokio</a>, <a href="https://github.com/hyperium/tonic">tonic</a>, <a href="https://github.com/tokio-rs/tracing">tracing</a>, and <a href="https://github.com/open-telemetry/opentelemetry-rust">opentelemetry</a>, etc.
+  However, it still lacks support for asynchronous file IO, and the AWS SDK for Rust is also too young for production.
+  But we believe that fixing these problems is just a matter of time.</li>
+</ul>
+<p>In the end, we are very proud of our achievements in such a short time and workforce.
+We also want to thank our early contributors for participating in such an immature project.</p>
+<h2 id="whats-next">What's Next</h2>
+<p>In this demo, we have explored the path toward an elastic storage engine, which is our first design goal.
+Our second design goal is to make the storage engine adaptive, which means that it should adjust its internal data structure to optimize for dynamic workloads.</p>
+<p><strong>So, in the next demo, we will explore the path toward an adaptive storage engine.</strong>
+The next demo will be more challenging than ever because we haven't found any practical references in the industry yet.
+We still need some time to figure out the roadmap and will share it on <a href="https://github.com/engula/engula">Github</a> as soon as possible.
+Meanwhile, if you want to know how it may look in advance, you can check <a href="https://stratos.seas.harvard.edu/publications/design-continuums-and-path-toward-self-designing-key-value-stores-know-and">this paper</a>.</p>
+
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../release-0.2/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Release 0.2" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Release 0.2
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../community/" class="md-footer__link md-footer__link--next" aria-label="Next: Community" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Community
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+      
+      
+    
+    <a href="https://github.com/engula" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/engulaio" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.0bbba5b5.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.e1a181d9.min.js"></script>
+      
+    
+  </body>
+</html>
