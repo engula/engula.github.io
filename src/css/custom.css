@@ -1,0 +1,179 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #000;
+  --ifm-color-primary-dark: #333;
+  --ifm-color-primary-darker: #4d0dfa;
+  --ifm-color-primary-darkest: #3d0ac8;
+  --ifm-color-primary-light: rgb(126, 83, 245);
+  --ifm-color-primary-lighter: #815fdd;
+  --ifm-color-primary-lightest: #a082f3;
+  --ifm-code-font-size: 95%;
+  --ifm-button-color: #fff;
+  --ifm-navbar-padding-vertical: 20px;
+  --ifm-link-color: #4d0dfa;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(235, 235, 235, 1);
+}
+
+.navbar__title {
+  font-size: 28px;
+}
+
+.button {
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: normal;
+}
+.button--lg {
+  font-size: 1rem;
+  margin: 0 10px 0 0;
+  padding: 10px 26px;
+  border-radius: 23px;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  -ms-border-radius: 23px;
+  -o-border-radius: 23px;
+  font-weight: bold;
+} 
+
+.section {
+  width: 100%;
+  padding: 4rem;
+  margin: 2rem 0;
+}
+
+.footer {
+  padding: 4rem;
+}
+
+.section-title {
+  margin-bottom: 4rem;
+}
+
+.section-title h2 {
+  font-size: 2.4rem;
+}
+
+.hero-text {
+  width: 70%;
+  padding: 0 0 0 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  color: #000;
+}
+
+/* homepage-features */
+.feature-icon {
+  width: 80px;
+  height: 80px;
+}
+
+/* homepage-events */
+.homepage-events .event-item {
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.homepage-events .event-item  a {
+  color: #fff;
+}
+
+
+/* keep-in-touch */
+.keep-intouch .touch-item {
+  border: 1px solid #000;
+  padding: 3rem 2rem;
+  position: relative;
+}
+
+.keep-intouch .touch-item a {
+  color: #000;
+}
+
+.keep-intouch .touch-item .touch-arrow-icon {
+  position: absolute;
+  top: 0;
+  right: 6px;
+  transform: rotate(45deg);
+}
+
+.homepage-try {
+ background-color: var(--ifm-color-primary);
+ background-image: url('/img/try_it_bg.png');
+ background-position: center;
+ padding: 6rem;
+ color: #fff;
+}
+
+.homepage-try .title {
+  font-size: 38px;
+}
+
+/* event page */
+.event-page-container {
+  padding: 4rem 0;
+}
+
+.event-page-container .event-list {
+  margin-top: 4rem;
+}
+
+.event-page-container .event-item {
+  display: flex;
+  justify-content: space-between;
+  color: rgb(54, 54, 55);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.event-page-container .event-item:last-child {
+  border-bottom: unset;
+}
+
+.event-page-container .event-item img {
+  width: 360px;
+}
+
+.event-page-container .event-item .info-text {
+  display: flex;
+  align-items: center;
+}
+
+.event-page-container .event-item .info-text > span {
+  margin-left: 4px;
+}
+
+.event-page-container .event-item .info-text > svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* community page */
+.contributor-avatar {
+  width: 50px;
+  border-radius: 50%;
+}
+
+td {
+  vertical-align: middle !important;
+}

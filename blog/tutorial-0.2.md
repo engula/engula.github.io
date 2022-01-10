@@ -95,7 +95,7 @@ Nice, you have tried two kernels now, and everything just works. But a storage e
 
 A gRPC kernel allows you to run an embedded engine along with your database while storing data in a remote kernel. The remote kernel, in turn, stores data in a remote journal and a remote storage. But you don't need to know how they work for now. You just need to understand their relationship to connect them together.
 
-![Kernel](../images/tutorial-0.2-kernel.drawio.svg)
+![Kernel](/img/tutorial-0.2-kernel.drawio.svg)
 
 Simply speaking, to use a gRPC kernel, you need to start a journal server and a storage server first. Then start a kernel server that connects to the journal server and the storage server. After that, you can connect to the kernel server and run your engine on it. Engula 0.2 provides an `engula` binary to start those servers. It's not complicated. Let's try it out!
 
