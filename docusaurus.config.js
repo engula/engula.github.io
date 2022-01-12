@@ -65,12 +65,22 @@ const config = {
           { to: '/event', label: 'Event', position: 'right' },
           { to: '/blog', label: 'Blog', position: 'right' },
           {
+            to: "/docs/general/community", 
+            label: "Community",
+            position: 'right'
+          },
+          {
             label: 'Resources', position: 'right', items: [
               {
-                label: "Community",
-                to: "/docs/general/community", 
+                label: "Child-1",
+                to: '/docs/intro'
               }
             ]
+          },
+          {
+            href: 'https://github.com/engula/engula/',
+            label: 'ChatRoom',
+            position: 'right',
           },
           {
             href: 'https://github.com/engula/engula/',
@@ -117,6 +127,14 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        // If Algolia did not provide you any appId, use 'BH4D9OD16A'
+        appId: 'YOUR_APP_ID',
+        // Public API key: it is safe to commit it
+        apiKey: 'YOUR_SEARCH_API_KEY',
+        indexName: 'engula',
+        contextualSearch: true,
       },
     }),
 };
