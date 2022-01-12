@@ -1,6 +1,8 @@
 ---
 title: Release 0.2
 date: 2021-12-17
+author: Tison
+authorURL: http://twitter.com/tison1096
 ---
 
 Today, we're excited to announce the release of Engula 0.2! Since [demo 1](demo-1.md), Engula has entered a formal development cycle, and Engula 0.2 is the first official release. Engula is a serverless storage engine that aims to help users build reliable and cost-effective databases.
