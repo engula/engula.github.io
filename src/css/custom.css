@@ -15,7 +15,7 @@
   --ifm-color-primary-lightest: #a082f3;
   --ifm-code-font-size: 95%;
   --ifm-button-color: #fff;
-  --ifm-navbar-padding-vertical: 20px;
+  --ifm-navbar-padding-vertical: 10px;
   --ifm-link-color: #4d0dfa;
 }
 
@@ -28,6 +28,9 @@
 
 html[data-theme='dark'] .docusaurus-highlight-code-line {
   background-color: rgba(235, 235, 235, 1);
+}
+.navbar {
+  height: auto;
 }
 
 .navbar__title {
