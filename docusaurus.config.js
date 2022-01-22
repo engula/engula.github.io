@@ -62,31 +62,14 @@ const config = {
             position: 'right',
             label: 'Docs',
           },
-          { to: '/event', label: 'Event', position: 'right' },
-          { to: '/blog', label: 'Blog', position: 'right' },
+          { to: '/events', label: 'Events', position: 'right' },
+          { to: '/blog', label: 'Blogs', position: 'right' },
           {
             to: "/docs/general/community", 
             label: "Community",
             position: 'right'
           },
-          {
-            label: 'Resources', position: 'right', items: [
-              {
-                label: "Child-1",
-                to: '/docs/intro'
-              }
-            ]
-          },
-          {
-            href: 'https://github.com/engula/engula/',
-            label: 'ChatRoom',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/engula/engula/',
-            label: 'GitHub',
-            position: 'right',
-          },
+          
         ],
       },
       footer: {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
@@ -8,12 +8,13 @@ import HomepageFeatures from '../components/HomepageFeatures';
 import HomePageEvents from '../components/HomePageEvents';
 import KeepInTouch from '../components/HomePageKeepInTouch';
 import HomePageTry from '../components/HomePageTry';
+import HomeSymbolSVG from '../../static/img/home_bg_symbol.svg'
 
 function HomepageHeader() {
   return (
     <header className={clsx('hero', styles.heroBanner)}>
-      <div className="container row hero-text align-left">
-        <div className='col col--12 text--left'>
+      <div className="container row hero-text">
+        <div className='col col--6 text--left'>
           <h1 hidden>Engula</h1>
           <h2 className="hero__title">Build reliable and cost-effective databases</h2>
           <p className="hero__subtitle">with less effort and more confidence</p>
@@ -24,6 +25,9 @@ function HomepageHeader() {
               Getting Started
             </Link>
           </div>
+        </div>
+        <div className='col col-6'>
+          <HomeSymbolSVG />
         </div>
       </div>
     </header>

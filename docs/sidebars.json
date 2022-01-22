@@ -1,10 +1,19 @@
 {
-  "docs": {
-    "Tutorial": [
-      {
-        "type": "doc",
-        "id": "intro"
-      }
-    ]
-  }
+  "docs": [
+    {
+      "type": "doc",
+      "label": "Design",
+      "id": "intro"
+    },
+    {
+      "type": "category",
+      "label": "Tutorial",
+      "items": [
+        {
+          "type": "doc",
+          "id": "tutorial/begin"
+        }
+      ]
+    }
+  ]
 }

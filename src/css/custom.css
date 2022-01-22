@@ -73,19 +73,52 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
 }
 
 .hero-text {
-  width: 70%;
   padding: 0 0 0 6vw;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  width: 100%;
   height: 100%;
   color: #000;
+  flex-wrap: nowrap;
+  max-width: 100%;
+  align-items: center;
+
 }
 
 /* homepage-features */
-.feature-icon {
-  width: 80px;
-  height: 80px;
+.homepage-features .feature-item {
+  flex-grow : 1!important;
+}
+
+.homepage-features .feature-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.homepage-features .feature-inner {
+  padding: 2rem;
+  margin: 8px;
+  border: 1px solid rgb(98, 98, 98);
+}
+
+.homepage-features .feature-content {
+  margin-top: 4rem;
+}
+
+.homepage-features .feature-content p{
+  position:relative;
+  line-height:1.4em;
+  height:4.2em;
+  overflow:hidden;
+}
+
+.homepage-features .feature-contentp::after {
+  content:'...';
+  font-weight:bold;
+  position:absolute;
+  bottom:0;
+  right:0;
+  padding:0 20px 1px 45px;
+  background:#fff;
 }
 
 /* homepage-events */
@@ -94,6 +127,7 @@ html[data-theme='dark'] .docusaurus-highlight-code-line {
   color: #fff;
   padding: 2rem;
   margin-bottom: 2rem;
+  border: 1px solid #dbdbdb;
 }
 
 .homepage-events .event-item  a {

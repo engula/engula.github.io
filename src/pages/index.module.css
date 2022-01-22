@@ -7,15 +7,33 @@
   text-align: center;
   position: relative;
   overflow: hidden;
-  background-image: url('/img/home_bg.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  min-height: 620px;
+  min-height: 100vh;
+  width: 100%;
+  background-image: radial-gradient(#ffffff96 20%, transparent 10%),
+  radial-gradient(#f0f0f0 20%, transparent 10%);
+background-position: 0 0, 300px 300px;
+background-size: 30px 30px;
 }
 
 @media screen and (max-width: 966px) {
   .heroBanner {
     padding: 2rem;
   }
+}
+
+
+:root {
+  --dark-color: hsl(var(--hue), 100%, 9%);
+  --light-color: hsl(var(--hue), 95%, 98%);
+  --base: hsl(var(--hue), 95%, 50%);
+  --complimentary1: hsl(var(--hue-complimentary1), 95%, 50%);
+  --complimentary2: hsl(var(--hue-complimentary2), 95%, 50%);
+
+  --font-family: "Poppins", system-ui;
+
+  --bg-gradient: linear-gradient(
+    to bottom,
+    hsl(var(--hue), 95%, 99%),
+    hsl(var(--hue), 95%, 84%)
+  );
 }

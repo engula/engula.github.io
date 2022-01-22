@@ -9,32 +9,38 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Feature-1',
+    title: 'Elastic',
     image: '/img/feature_1.svg',
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+       takes advantage of elastic resources on the cloud
       </>
     ),
   },
   {
-    title: 'Feature-2',
+    title: 'Adaptive',
     image: '/img/feature_2.svg',
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the docs directory.
+        adapts to dynamic workloads and diverse applications
       </>
     ),
   },
   {
-    title: 'Feature-3',
+    title: 'Extensible',
     image: '/img/feature_3.svg',
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        provides pluggable interfaces and implementations for customization
+      </>
+    ),
+  },
+  {
+    title: 'Platform independent',
+    image: '/img/feature_3.svg',
+    description: (
+      <>
+       allows flexible deployments on local hosts, on-premise servers, and cloud platforms
       </>
     ),
   },
@@ -42,13 +48,15 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, image, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
-      <div className="text--left">
-        <img className='feature-icon' alt={title} src={image} />
-      </div>
-      <div className="text--left">
-        <h3>{title}</h3>
-        <p>{description}</p>
+    <div className={clsx('col col--3', 'feature-item')}>
+      <div className='feature-inner'>
+        <div className="text--left">
+          <img className='feature-icon' alt={title} src={image} />
+        </div>
+        <div className="text--left feature-content">
+          <h3>{title}</h3>
+          <p>{description}</p>
+        </div>
       </div>
     </div>
   );
@@ -56,10 +64,10 @@ function Feature({ title, image, description }: FeatureItem) {
 
 export default function HomepageFeatures(): JSX.Element {
   return (
-    <section className='section'>
+    <section className='section homepage-features'>
       <div className="container">
         <div className="w-100 text--center section-title">
-          <h2>Why Choose Engula</h2>
+          <h2>Engula Design Goals</h2>
         </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
