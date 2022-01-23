@@ -34,7 +34,7 @@ export default function Home({ events }): JSX.Element {
 				<p>Activities and events of Engula.</p>
 				<div className='event-list'>
 					{
-						events.map(item => Event(item))
+						events?.map(item => Event(item))
 					}
 				</div>
 			</div>
