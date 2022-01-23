@@ -6,6 +6,11 @@
       "id": "intro"
     },
     {
+      "type": "doc",
+      "label": "RFCs",
+      "id": "rfcs"
+    },
+    {
       "type": "category",
       "label": "Tutorial",
       "items": [

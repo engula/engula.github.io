@@ -24,7 +24,7 @@ module.exports = function () {
 
        addRoute({
         path: '/events',
-        component: '@site/src/pages/Events',
+        component: '@site/src/pages/events',
         modules: {
           events: events,
         },
