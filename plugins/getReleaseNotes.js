@@ -15,21 +15,9 @@ module.exports = function () {
       return events;
     },
     async contentLoaded({ content, actions }) {
-      const { createData, addRoute } = actions;
+      const { setGlobalData } = actions;
      
-      const events = await createData(
-        'events.json',
-        JSON.stringify(content),
-      );
-
-       addRoute({
-        path: '/events',
-        component: '@site/src/pages/events',
-        modules: {
-          events: events,
-        },
-        exact: true,
-      });
+      setGlobalData({events: content});
     },
   };
 };

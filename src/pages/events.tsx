@@ -3,6 +3,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import DateIcon from '../../static/img/date_icon.svg';
 import * as marked from 'marked';
+import {usePluginData} from '@docusaurus/useGlobalData';
 
 type EventItem = {
 	title: string;
@@ -23,7 +24,9 @@ function Event({ title, link, date, content }: EventItem) {
 	);
 }
 
-export default function Home({ events }): JSX.Element {
+export default function Home(): JSX.Element {
+	const { events } = usePluginData('docusaurus-plugin-getReleaseNotes') as { events: EventItem[]};
+
 	const { siteConfig } = useDocusaurusContext();
 	return (
 		<Layout
