@@ -1,73 +1,40 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
-import AddressIcon from '../../../static/img/address_icon.svg'
-import DateIcon from '../../../static/img/date_icon.svg'
+import DateIcon from '../../../static/img/date_icon.svg';
+import * as marked from 'marked';
 
 type EventItem = {
 	title: string;
 	link: string;
 	date: string;
-	image: string;
-	address?: string;
+	content?: string;
 };
 
-const EventList: EventItem[] = [
-	{
-		title: 'Slack Sapce',
-		link: 'https://engula.io/',
-		date: '17/19/2021',
-		image: '/img/events/event_1.jpeg'
-	},
-	{
-		title: 'Slack Sapce',
-		link: 'https://engula.io/',
-		date: '17/19/2021',
-		image: '/img/events/event_1.jpeg',
-		address: 'Sun system, Earth'
-	},
-	{
-		title: 'Slack Sapce',
-		link: 'https://engula.io/',
-		date: '17/19/2021',
-		image: '/img/events/event_1.jpeg'
-	},
-	{
-		title: 'Slack Sapce',
-		link: 'https://engula.io/',
-		date: '17/19/2021',
-		image: '/img/events/event_1.jpeg',
-	},
-];
-
-function Event({ title, link, date, address, image }: EventItem) {
+function Event({ title, link, date, content }: EventItem) {
 	return (
-		<div className="text--left event-item">
+		<div className="text--left event-item" key={link}>
 			<div>
 				<a href={link}><h2>{title}</h2></a>
 				<div className='info-text'><DateIcon /><span>{date}</span></div>
-				{
-					address && <div className='info-text'><AddressIcon /><span>{address}</span></div>
-				}
 			</div>
-			<img src={image} />
+			<div className='content'dangerouslySetInnerHTML={{__html: marked.parse(content)}} ></div>
 		</div>
 	);
 }
 
-export default function Home(): JSX.Element {
+export default function Home({ events }): JSX.Element {
 	const { siteConfig } = useDocusaurusContext();
 	return (
 		<Layout
 			title={`Hello from ${siteConfig.title}`}
 			description="Build reliable and cost-effective databases">
 			<div className='event-page-container container'>
-				<h1 className={styles.pageTitle}>Events</h1>
+				<h1 className='pageTitle'>Events</h1>
 				<p>Activities and events of Engula.</p>
 				<div className='event-list'>
 					{
-						EventList.map(item => Event(item))
+						events.map(item => Event(item))
 					}
 				</div>
 			</div>
