@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import DateIcon from '../../../static/img/date_icon.svg';
+import DateIcon from '../../static/img/date_icon.svg';
 import * as marked from 'marked';
 
 type EventItem = {
