@@ -65,11 +65,11 @@ const config = {
           { to: '/events', label: 'Events', position: 'right' },
           { to: '/blog', label: 'Blogs', position: 'right' },
           {
-            to: "/docs/general/community", 
+            to: "/docs/general/community",
             label: "Community",
             position: 'right'
           },
-          
+
         ],
       },
       footer: {
@@ -111,16 +111,21 @@ const config = {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
-      algolia: {
-        // If Algolia did not provide you any appId, use 'BH4D9OD16A'
-        appId: 'YOUR_APP_ID',
-        // Public API key: it is safe to commit it
-        apiKey: 'YOUR_SEARCH_API_KEY',
-        indexName: 'engula',
-        contextualSearch: true,
-      },
+      // algolia: {
+      //   // If Algolia did not provide you any appId, use 'BH4D9OD16A'
+      //   appId: 'YOUR_APP_ID',
+      //   // Public API key: it is safe to commit it
+      //   apiKey: 'YOUR_SEARCH_API_KEY',
+      //   indexName: 'engula',
+      //   contextualSearch: true,
+      // },
     }),
-    plugins: [path.resolve(__dirname, 'plugins', 'getReleaseNotes')],
+  plugins: [path.resolve(__dirname, 'plugins', 'getReleaseNotes'), [
+    require.resolve("@easyops-cn/docusaurus-search-local"),
+    {
+      hashed: true,
+    },
+  ],],
 };
 
 module.exports = config;
