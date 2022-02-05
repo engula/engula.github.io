@@ -3,22 +3,12 @@
     {
       "type": "doc",
       "label": "Design",
-      "id": "intro"
+      "id": "design"
     },
     {
       "type": "doc",
       "label": "RFCs",
       "id": "rfcs"
-    },
-    {
-      "type": "category",
-      "label": "Tutorial",
-      "items": [
-        {
-          "type": "doc",
-          "id": "tutorial/begin"
-        }
-      ]
     }
   ]
 }

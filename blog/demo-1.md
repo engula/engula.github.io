@@ -1,8 +1,8 @@
 ---
 title: 'Demo 1: Towards an Elastic Storage Engine'
 date: 2021-10-03
-author: Tison
-authorURL: http://twitter.com/tison1096
+author: Richard
+authorURL: https://github.com/huachaohuang
 ---
 
 Congratulations, we have finished our first demo and evaluated it on AWS in September 2021.

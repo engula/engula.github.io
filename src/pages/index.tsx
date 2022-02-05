@@ -1,28 +1,30 @@
-import React, { useEffect, useRef } from 'react';
-import clsx from 'clsx';
+import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import styles from './index.module.css';
 import HomepageFeatures from '../components/HomepageFeatures';
-import HomePageEvents from '../components/HomePageEvents';
-import KeepInTouch from '../components/HomePageKeepInTouch';
-import HomePageTry from '../components/HomePageTry';
-import HomeSymbolSVG from '../../static/img/home_bg_symbol.svg'
+import HomeSymbolSVG from '../../static/img/home_bg_symbol.svg';
+import ArrowIcon from '../../static/img/icon-arrow.svg';
+import GithubIcon from '../../static/img/icon-github.svg';
 
 function HomepageHeader() {
   return (
-    <header className={clsx('hero', styles.heroBanner)}>
+    <header className='hero heroBanner'>
       <div className="container row hero-text">
         <div className='col col--6 text--left'>
           <h1 hidden>Engula</h1>
           <h2 className="hero__title">Build reliable and cost-effective databases</h2>
           <p className="hero__subtitle">with less effort and more confidence</p>
-          <div className={styles.buttons}>
+          <div className='link-buttons'>
+            <Link
+              className="button button--lg start-button"
+              to="/docs/design">
+              Design <ArrowIcon style={{width: '24px', height: '24px'}} />
+            </Link>
             <Link
               className="button button--primary button--lg"
-              to="/docs/intro">
-              Getting Started
+              to="https://github.com/engula/engula">
+              Github <GithubIcon style={{width: '24px', height: '24px'}} />
             </Link>
           </div>
         </div>
@@ -43,9 +45,6 @@ export default function Home(): JSX.Element {
       <HomepageHeader />
       <main>
         <HomepageFeatures />
-        <HomePageEvents />
-        <KeepInTouch />
-        <HomePageTry />
       </main>
     </Layout>
   );

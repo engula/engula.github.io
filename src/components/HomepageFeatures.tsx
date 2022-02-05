@@ -67,7 +67,7 @@ export default function HomepageFeatures(): JSX.Element {
     <section className='section homepage-features'>
       <div className="container">
         <div className="w-100 text--center section-title">
-          <h2>Engula Design Goals</h2>
+          <h2>Design Goals</h2>
         </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
