@@ -110,6 +110,8 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+        defaultLanguage: 'shell',
+        additionalLanguages: ['toml', 'rust'],
       },
       // algolia: {
       //   // If Algolia did not provide you any appId, use 'BH4D9OD16A'

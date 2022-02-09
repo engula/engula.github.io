@@ -19,7 +19,7 @@ Welcome to the tutorial for Engula 0.2! In this tutorial, we'll show you how to 
 
 First of all, create a new project with:
 
-```sh
+```
 cargo new hello-engula
 cd hello-engula
 ```
@@ -64,7 +64,7 @@ async fn main() -> Result<()> {
 
 Now, you can run the example with:
 
-```sh
+```js
 cargo +nightly run
 ```
 
@@ -103,20 +103,20 @@ Simply speaking, to use a gRPC kernel, you need to start a journal server and a 
 
 You need to install the `engula` binary first:
 
-```sh
+```
 cargo +nightly install engula
 ```
 
 Then start a journal server and a storage server:
 
-```sh
+```
 engula journal run 127.0.0.1:10001 --mem
 engula storage run 127.0.0.1:10002 --mem
 ```
 
 And then start a kernel server connecting to the journal server and the storage server:
 
-```sh
+```
 engula kernel run 127.0.0.1:10003 --journal 127.0.0.1:10001 --storage 127.0.0.1:10002 --mem
 ```
 
