@@ -64,7 +64,7 @@ async fn main() -> Result<()> {
 
 Now, you can run the example with:
 
-```js
+```sh
 cargo +nightly run
 ```
 

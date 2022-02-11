@@ -63,7 +63,7 @@ const config = {
             label: 'Docs',
           },
           { to: '/events', label: 'Events', position: 'right' },
-          { to: '/blog', label: 'Blogs', position: 'right' },
+          { to: '/blog', label: 'Blog', position: 'right' },
           {
             to: "/docs/general/community",
             label: "Community",

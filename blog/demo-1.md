@@ -15,7 +15,7 @@ We then describe the experiments we conducted on the demo and share some lessons
 
 The architecture of the demo is as follow:
 
-![Architecture]/img/demo-1-architecture.drawio.svg)
+![Architecture](/img/demo-1-architecture.drawio.svg)
 
 The top half shows a classic LSM-Tree structure similar to RocksDB.
 However, the implementation is much simpler due to the limited time and workforce.
