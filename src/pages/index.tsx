@@ -11,7 +11,7 @@ function HomepageHeader() {
   return (
     <header className='hero heroBanner'>
       <div className="container row hero-text">
-        <div className='col col--6 text--left'>
+        <div className='col col--6 text--left banner-text'>
           <h1 hidden>Engula</h1>
           <h2 className="hero__title">Build reliable and cost-effective databases</h2>
           <p className="hero__subtitle">with less effort and more confidence</p>
@@ -28,7 +28,7 @@ function HomepageHeader() {
             </Link>
           </div>
         </div>
-        <div className='col col-6'>
+        <div className='col col-6 banner-svg'>
           <HomeSymbolSVG />
         </div>
       </div>
