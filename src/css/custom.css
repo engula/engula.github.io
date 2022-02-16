@@ -1,0 +1,248 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #000;
+  --ifm-color-primary-dark: #333;
+  --ifm-color-primary-darker: #4d0dfa;
+  --ifm-color-primary-darkest: #3d0ac8;
+  --ifm-color-primary-light: rgb(126, 83, 245);
+  --ifm-color-primary-lighter: #815fdd;
+  --ifm-color-primary-lightest: #a082f3;
+  --ifm-code-font-size: 95%;
+  --ifm-button-color: #fff;
+  --ifm-navbar-padding-vertical: 10px;
+  --ifm-link-color: #4d0dfa;
+}
+
+.docusaurus-highlight-code-line {
+  background-color: rgba(0, 0, 0, 0.1);
+  display: block;
+  margin: 0 calc(-1 * var(--ifm-pre-padding));
+  padding: 0 var(--ifm-pre-padding);
+}
+
+html[data-theme='dark'] .docusaurus-highlight-code-line {
+  background-color: rgba(235, 235, 235, 1);
+}
+
+.navbar {
+  height: auto;
+}
+
+.navbar__title {
+  font-size: 28px;
+}
+
+.button {
+  border-radius: 20px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.button--lg {
+  font-size: 1rem;
+  margin: 0 10px 0 0;
+  padding: 10px 26px;
+  border-radius: 23px;
+  -webkit-border-radius: 23px;
+  -moz-border-radius: 23px;
+  -ms-border-radius: 23px;
+  -o-border-radius: 23px;
+  font-weight: bold;
+} 
+
+.section {
+  width: 100%;
+  padding: 4rem;
+  margin: 2rem 0;
+}
+
+.footer {
+  padding: 4rem;
+}
+
+.pageTitle {
+  font-size: 3rem;
+}
+
+.section-title {
+  margin-bottom: 4rem;
+}
+
+.section-title h2 {
+  font-size: 2.4rem;
+}
+
+
+.heroBanner {
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  width: 100%;
+  background-image: radial-gradient(#ffffff96 20%, transparent 10%),
+  radial-gradient(#f0f0f0 20%, transparent 10%);
+  background-position: 0 0, 300px 300px;
+  background-size: 30px 30px;
+  margin: 0;
+}
+
+.heroBanner .link-buttons .button {
+  display: inline-flex;
+  align-items: center;
+}
+
+.heroBanner .link-buttons .start-button{
+  background-color:  var(--ifm-color-primary-darker);
+  color: #fff;
+}
+
+.heroBanner .link-buttons svg {
+  fill: currentColor;
+  margin-left: 8px;
+}
+
+.hero-text {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  color: #000;
+  flex-wrap: nowrap;
+  max-width: 100%!important;
+  align-items: center;
+}
+
+.heroBanner .banner-svg >svg {
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 996px) {
+  .heroBanner {
+    padding: 1.5rem;
+  }
+  .heroBanner .banner-svg {
+    display: none;
+  }
+  .heroBanner .hero-text {
+    margin: 0;
+    padding: 0;
+  }
+  .heroBanner .banner-text {
+    padding: 0;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1100px) {
+  .homepage-features .feature-item {
+    padding: 0 0.5rem;
+  }
+}
+
+/* homepage-features */
+.homepage-features .feature-item {
+  flex-grow : 1!important;
+  margin-bottom: 1rem;
+}
+
+.homepage-features .feature-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.homepage-features .feature-inner {
+  padding: 2rem;
+  margin: 8px;
+  border: 1px solid rgb(98, 98, 98);
+  height: 100%;
+}
+
+.homepage-features .feature-content {
+  margin-top: 4rem;
+}
+
+.homepage-features .feature-content p{
+  position:relative;
+  line-height:1.4em;
+}
+
+.homepage-features .feature-contentp::after {
+  content:'...';
+  font-weight:bold;
+  position:absolute;
+  bottom:0;
+  right:0;
+  padding:0 20px 1px 45px;
+  background:#fff;
+}
+
+/* homepage-events */
+.homepage-events .event-item {
+  background-color: var(--ifm-color-primary);
+  color: #fff;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid #dbdbdb;
+}
+
+.homepage-events .event-item  a {
+  color: #fff;
+}
+
+/* event page */
+.event-page-container {
+  padding: 2rem var(--ifm-spacing-horizontal);
+}
+
+.event-page-container .event-list {
+  margin-top: 4rem;
+}
+
+.event-page-container .event-item {
+  color: rgb(54, 54, 55);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #333;
+}
+
+.event-page-container .event-item:last-child {
+  border-bottom: unset;
+}
+
+.event-page-container .event-item img {
+  width: 360px;
+}
+
+.event-page-container .event-item .info-text {
+  display: flex;
+  align-items: center;
+}
+
+.event-page-container .event-item .info-text > span {
+  margin-left: 4px;
+}
+
+.event-page-container .event-item .info-text > svg {
+  width: 20px;
+  height: 20px;
+}
+
+.event-page-container .event-item .content {
+  margin-top: 2rem;
+}
+
+/* community page */
+.contributor-avatar {
+  width: 50px;
+  border-radius: 50%;
+}
+
+td {
+  vertical-align: middle !important;
+}

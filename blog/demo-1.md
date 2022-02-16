@@ -1,6 +1,8 @@
 ---
 title: 'Demo 1: Towards an Elastic Storage Engine'
 date: 2021-10-03
+author: Richard
+authorURL: https://github.com/huachaohuang
 ---
 
 Congratulations, we have finished our first demo and evaluated it on AWS in September 2021.
@@ -13,7 +15,7 @@ We then describe the experiments we conducted on the demo and share some lessons
 
 The architecture of the demo is as follow:
 
-![Architecture](../images/demo-1-architecture.drawio.svg)
+![Architecture](/img/demo-1-architecture.drawio.svg)
 
 The top half shows a classic LSM-Tree structure similar to RocksDB.
 However, the implementation is much simpler due to the limited time and workforce.
@@ -55,7 +57,7 @@ As for the network performance between these instances, the latency is about 0.1
 
 The deployment is as follow:
 
-![Local/Remote Deployment](../images/demo-1-local-remote-deployment.drawio.svg)
+![Local/Remote Deployment](/img/demo-1-local-remote-deployment.drawio.svg)
 
 We also develop a purpose-built [benchmark tool](https://github.com/engula/engula/blob/demo-1/engula/bin/engula.rs) that allows us to switch between local and remote components in a configuration file.
 For all experiments in this section:
@@ -73,7 +75,7 @@ For more details about the specific setups, please check the [local](https://git
 
 The benchmark results *without compactions* are as follows:
 
-![Put Performance](../images/demo-1-put-performance.drawio.svg)
+![Put Performance](/img/demo-1-put-performance.drawio.svg)
 
 | Table 1 | QPS | Latency (P95/P99/P999) | CPU Usage (Sum of two nodes) |
 |---------|-----|------------------------|------------------------------|
@@ -92,7 +94,7 @@ On the other hand, Table 1 shows that the remote setup achieves similar QPS and 
 
 Next, we enable compactions and rerun the benchmarks.
 
-![Put Performance with Compactions](../images/demo-1-put-performance-with-compactions.drawio.svg)
+![Put Performance with Compactions](/img/demo-1-put-performance-with-compactions.drawio.svg)
 
 | Table 2 | QPS | Latency (P95/P99/P999) | CPU Usage (Sum of two nodes) |
 |---------|-----|------------------------|------------------------------|
@@ -118,7 +120,7 @@ We decide to live with that because IO performance is not our primary concern he
 
 The benchmark results *without cache* are as follows:
 
-![Get Performance](../images/demo-1-get-performance.drawio.svg)
+![Get Performance](/img/demo-1-get-performance.drawio.svg)
 
 | Table 3 | QPS | Latency (P95/P99/P999) | CPU Usage (Sum of two nodes) |
 |---------|-----|------------------------|----------------------------------|
@@ -140,7 +142,7 @@ This situation is very undesired because if the network bandwidth of the compute
 
 So let's enable cache and rerun the benchmarks.
 
-![Get Performance](../images/demo-1-get-performance-with-cache.drawio.svg)
+![Get Performance](/img/demo-1-get-performance-with-cache.drawio.svg)
 
 | Table 4 | QPS | Latency (P95/P99/P999) | CPU Usage (Sum of two instances) |
 |---------|-----|------------------------|----------------------------------|
@@ -185,7 +187,7 @@ On the other hand, the benefits of adding the Parquet storage here are threefold
 
 Finally, we get a cloud-native architecture as follow:
 
-![Cloud-Native Architecture](../images/demo-1-cloud-native-architecture.drawio.svg)
+![Cloud-Native Architecture](/img/demo-1-cloud-native-architecture.drawio.svg)
 
 #### Deployment
 
@@ -218,7 +220,7 @@ The `Get` performance of this architecture should be similar to the remote setup
 
 The benchmark results for `Put` are as follow:
 
-![Cloud-Native Put Performance 1](../images/demo-1-cloud-native-put-performance-1.drawio.svg)
+![Cloud-Native Put Performance 1](/img/demo-1-cloud-native-put-performance-1.drawio.svg)
 
 Well, it works.
 But only for a little while, unfortunately.
@@ -272,7 +274,7 @@ So, to satisfy the above requirements, we decide to upgrade our setup as follow:
 
 Now let's rerun the benchmark with this setup to see if it is worth it.
 
-![Cloud-Native Put Performance 2](../images/demo-1-cloud-native-put-performance-2.drawio.svg)
+![Cloud-Native Put Performance 2](/img/demo-1-cloud-native-put-performance-2.drawio.svg)
 
 **Awesome, we finally get everything work as expected!**
 We accomplish our goal to deliver 200,000 puts per second in 1KB value size, which is 200MB/s.

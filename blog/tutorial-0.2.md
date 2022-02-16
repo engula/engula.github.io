@@ -1,6 +1,8 @@
 ---
 title: Tutorial 0.2
 date: 2021-12-17
+author: Richard
+authorURL: https://github.com/huachaohuang
 ---
 
 Welcome to the tutorial for Engula 0.2! In this tutorial, we'll show you how to use an Engula engine.
@@ -17,7 +19,7 @@ Welcome to the tutorial for Engula 0.2! In this tutorial, we'll show you how to 
 
 First of all, create a new project with:
 
-```sh
+```
 cargo new hello-engula
 cd hello-engula
 ```
@@ -95,26 +97,26 @@ Nice, you have tried two kernels now, and everything just works. But a storage e
 
 A gRPC kernel allows you to run an embedded engine along with your database while storing data in a remote kernel. The remote kernel, in turn, stores data in a remote journal and a remote storage. But you don't need to know how they work for now. You just need to understand their relationship to connect them together.
 
-![Kernel](../images/tutorial-0.2-kernel.drawio.svg)
+![Kernel](/img/tutorial-0.2-kernel.drawio.svg)
 
 Simply speaking, to use a gRPC kernel, you need to start a journal server and a storage server first. Then start a kernel server that connects to the journal server and the storage server. After that, you can connect to the kernel server and run your engine on it. Engula 0.2 provides an `engula` binary to start those servers. It's not complicated. Let's try it out!
 
 You need to install the `engula` binary first:
 
-```sh
+```
 cargo +nightly install engula
 ```
 
 Then start a journal server and a storage server:
 
-```sh
+```
 engula journal run 127.0.0.1:10001 --mem
 engula storage run 127.0.0.1:10002 --mem
 ```
 
 And then start a kernel server connecting to the journal server and the storage server:
 
-```sh
+```
 engula kernel run 127.0.0.1:10003 --journal 127.0.0.1:10001 --storage 127.0.0.1:10002 --mem
 ```
 

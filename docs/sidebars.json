@@ -1,0 +1,14 @@
+{
+  "docs": [
+    {
+      "type": "doc",
+      "label": "Design",
+      "id": "design"
+    },
+    {
+      "type": "doc",
+      "label": "RFCs",
+      "id": "rfcs"
+    }
+  ]
+}
