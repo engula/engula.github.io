@@ -25,17 +25,14 @@ const config = {
           routeBasePath: "/docs",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
-          sidebarPath: require.resolve('./docs/sidebars.json'),
-          // Please change this to your repo.
-          editUrl: 'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarPath: false,
+          editUrl: 'https://github.com/engula/engula.github.io/tree/main/',
         },
         blog: {
           showReadingTime: true,
           blogSidebarTitle: 'All posts',
           blogSidebarCount: 'ALL',
-          // Please change this to your repo.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          editUrl: 'https://github.com/engula/engula.github.io/tree/main/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -51,25 +48,15 @@ const config = {
         disableSwitch: true,
       },
       navbar: {
+        title: 'Engula',
         logo: {
           alt: 'Engula',
           src: 'img/favicon.png',
         },
         items: [
-          {
-            type: 'doc',
-            docId: 'design',
-            position: 'right',
-            label: 'Docs',
-          },
-          { to: '/events', label: 'Events', position: 'right' },
-          { to: '/blog', label: 'Blog', position: 'right' },
-          {
-            to: "/docs/general/community",
-            label: "Community",
-            position: 'right'
-          },
-
+          { label: 'Blog', to: '/blog', position: 'right' },
+          { label: 'Events', to: '/events', position: 'right' },
+          { label: 'Community', to: "/docs/general/community", position: 'right' },
         ],
       },
       footer: {
@@ -77,10 +64,6 @@ const config = {
           {
             title: 'Community',
             items: [
-              {
-                label: 'Forum',
-                href: 'https://github.com/engula/engula/discussions',
-              },
               {
                 label: 'Zulip',
                 href: 'https://engula.zulipchat.com/',
@@ -101,6 +84,10 @@ const config = {
               {
                 label: 'GitHub',
                 href: 'https://github.com/engula/engula',
+              },
+              {
+                label: 'GitHub Discussions',
+                href: 'https://github.com/engula/engula/discussions',
               },
             ],
           },
