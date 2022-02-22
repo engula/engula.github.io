@@ -10,7 +10,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: 'Flexible Data API',
-    image: '/img/feature_1.svg',
+    image: '/img/feature-1.svg',
     description: (
       <>
         Provide persistent data structures such as numbers, strings, maps, and lists.
@@ -19,7 +19,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'ACID Transaction',
-    image: '/img/feature_2.svg',
+    image: '/img/feature-2.svg',
     description: (
       <>
         Empower advanced applications with different isolation and consistency levels.
@@ -28,19 +28,19 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Built-in Cache',
-    image: '/img/feature_3.svg',
+    image: '/img/feature-2.svg',
     description: (
       <>
-        Implement a built-in cache tier to boost read performance, resist hotspots and traffic bursts.
+        Implement a built-in cache tier to speed up reads, resist hotspots and traffic bursts.
       </>
     ),
   },
   {
     title: 'Cost-effective',
-    image: '/img/feature_3.svg',
+    image: '/img/feature-3.svg',
     description: (
       <>
-        Implement a cloud-native architecture to offer higher performance with less resource consumption.
+        Implement a cloud-native architecture to deliver higher performance with less resource consumption.
       </>
     ),
   },
