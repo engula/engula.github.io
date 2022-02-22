@@ -7,14 +7,14 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Engula',
-  tagline: 'Build reliable and cost-effective databases',
-  url: 'https://your-docusaurus-test-site.com',
+  tagline: 'A persistent data structure store',
+  url: 'https://engula.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  favicon: 'img/favicon.png',
+  organizationName: 'engula',
+  projectName: 'engula',
   presets: [
     [
       'classic',
@@ -53,7 +53,7 @@ const config = {
       navbar: {
         logo: {
           alt: 'Engula',
-          src: 'img/logo.svg',
+          src: 'img/favicon.png',
         },
         items: [
           {
@@ -78,7 +78,7 @@ const config = {
             title: 'Community',
             items: [
               {
-                label: 'Discussion Forum',
+                label: 'Forum',
                 href: 'https://github.com/engula/engula/discussions',
               },
               {

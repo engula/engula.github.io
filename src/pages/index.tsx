@@ -13,18 +13,18 @@ function HomepageHeader() {
       <div className="container row hero-text">
         <div className='col col--6 text--left banner-text'>
           <h1 hidden>Engula</h1>
-          <h2 className="hero__title">Build reliable and cost-effective databases</h2>
-          <p className="hero__subtitle">with less effort and more confidence</p>
+          <h2 className="hero__title">A persistent data structure store</h2>
+          <p className="hero__subtitle">the standard collections for stateful applications</p>
           <div className='link-buttons'>
             <Link
               className="button button--lg start-button"
               to="/docs/design">
-              Design <ArrowIcon style={{width: '24px', height: '24px'}} />
+              Get Started <ArrowIcon style={{ width: '24px', height: '24px' }} />
             </Link>
             <Link
               className="button button--primary button--lg"
               to="https://github.com/engula/engula">
-              Github <GithubIcon style={{width: '24px', height: '24px'}} />
+              Github <GithubIcon style={{ width: '24px', height: '24px' }} />
             </Link>
           </div>
         </div>
@@ -40,8 +40,8 @@ export default function Home(): JSX.Element {
   const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Build reliable and cost-effective databases">
+      title={`${siteConfig.title}`}
+      description={`${siteConfig.tagline}`}>
       <HomepageHeader />
       <main>
         <HomepageFeatures />
