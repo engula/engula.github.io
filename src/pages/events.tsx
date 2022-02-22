@@ -3,7 +3,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import DateIcon from '../../static/img/date_icon.svg';
 import * as marked from 'marked';
-import {usePluginData} from '@docusaurus/useGlobalData';
+import { usePluginData } from '@docusaurus/useGlobalData';
 
 type EventItem = {
 	title: string;
@@ -19,19 +19,19 @@ function Event({ title, link, date, content }: EventItem) {
 				<a href={link}><h2>{title}</h2></a>
 				<div className='info-text'><DateIcon /><span>{date}</span></div>
 			</div>
-			<div className='content'dangerouslySetInnerHTML={{__html: marked.parse(content)}} ></div>
+			<div className='content' dangerouslySetInnerHTML={{ __html: marked.parse(content) }} ></div>
 		</div>
 	);
 }
 
 export default function Home(): JSX.Element {
-	const { events } = usePluginData('docusaurus-plugin-getReleaseNotes') as { events: EventItem[]};
+	const { events } = usePluginData('docusaurus-plugin-getReleaseNotes') as { events: EventItem[] };
 
 	const { siteConfig } = useDocusaurusContext();
 	return (
 		<Layout
-			title={`Hello from ${siteConfig.title}`}
-			description="Build reliable and cost-effective databases">
+			title={`${siteConfig.title}`}
+			description={`${siteConfig.tagline}`}>
 			<div className='event-page-container container'>
 				<h1 className='pageTitle'>Events</h1>
 				<p>Activities and events of Engula.</p>

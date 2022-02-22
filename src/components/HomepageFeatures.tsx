@@ -9,38 +9,38 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Elastic',
+    title: 'Flexible Data API',
     image: '/img/feature_1.svg',
     description: (
       <>
-       takes advantage of elastic resources on the cloud
+        Provide persistent data structures such as numbers, strings, maps, and lists.
       </>
     ),
   },
   {
-    title: 'Adaptive',
+    title: 'ACID Transaction',
     image: '/img/feature_2.svg',
     description: (
       <>
-        adapts to dynamic workloads and diverse applications
+        Empower advanced applications with different isolation and consistency levels.
       </>
     ),
   },
   {
-    title: 'Extensible',
+    title: 'Built-in Cache',
     image: '/img/feature_3.svg',
     description: (
       <>
-        provides pluggable interfaces and implementations for customization
+        Implement a built-in cache tier to boost read performance, resist hotspots and traffic bursts.
       </>
     ),
   },
   {
-    title: 'Platform independent',
+    title: 'Cost-effective',
     image: '/img/feature_3.svg',
     description: (
       <>
-       allows flexible deployments on local hosts, on-premise servers, and cloud platforms
+        Implement a cloud-native architecture to offer higher performance with less resource consumption.
       </>
     ),
   },
@@ -67,7 +67,7 @@ export default function HomepageFeatures(): JSX.Element {
     <section className='section homepage-features'>
       <div className="container">
         <div className="w-100 text--center section-title">
-          <h2>Design Goals</h2>
+          <h2>Features</h2>
         </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
