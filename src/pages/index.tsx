@@ -17,7 +17,7 @@ function HomepageHeader() {
           <div className='link-buttons'>
             <Link
               className="button button--lg start-button"
-              to="/blog/tutorial-0.2">
+              to="/blog/tutorial-0.3">
               Get Started <ArrowIcon style={{ width: '24px', height: '24px' }} />
             </Link>
             <Link

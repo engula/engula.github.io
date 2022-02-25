@@ -10,7 +10,7 @@ Welcome to the tutorial for Engula 0.2! In this tutorial, we'll show you how to 
 ## Prerequisites
 
 - [rustup](https://rustup.rs/)
-- Engula requires a nightly toolchain to build. You can install a nightly toolchain with:
+- Engula requires a nightly toolchain to build. You can install it with:
   ```
   rustup install nightly
   ```
