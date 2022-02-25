@@ -18,7 +18,7 @@ Today, we're excited to announce the release of Engula 0.3! Engula is a persiste
 
 Moreover, **Engula supports ACID transactions across different data structures.** For example, you can push an element to a list and insert an index to a map in the same transaction. This feature allows users to build more advanced applications on top of Engula.
 
-Engula 0.3 also comes with a new server and a Rust client. **You can get started with [this tutorial](tutorial-0.3).** Welcome to explore and have fun!
+Engula 0.3 also comes with a new server and a Rust client. **You can get started with [this tutorial](/blog/tutorial-0.3).** Welcome to explore and have fun!
 
 ## The new website
 
