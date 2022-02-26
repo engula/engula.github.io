@@ -5,7 +5,7 @@ author: Richard
 authorURL: https://github.com/huachaohuang
 ---
 
-Today, we're excited to announce the release of Engula 0.3! Engula is a persistent data structure store, used as a database, cache, and storage engine.
+Today, we're excited to announce the release of Engula 0.3! Engula is a cloud-native data structure store, used as a database, cache, and storage engine.
 
 ## What's in 0.3?
 

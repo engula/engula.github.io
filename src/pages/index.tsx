@@ -12,7 +12,7 @@ function HomepageHeader() {
       <div className="container row hero-text">
         <div className='col banner-text'>
           <h1 hidden>Engula</h1>
-          <h2 className="hero__title">A persistent data structure store</h2>
+          <h2 className="hero__title">A cloud-native data structure store</h2>
           <p className="hero__subtitle">used as a database, cache, and storage engine</p>
           <div className='link-buttons'>
             <Link
