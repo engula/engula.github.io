@@ -20,7 +20,7 @@ Engula 0.2 comes with one engine and three kernels:
 - **A file kernel that stores everything in local files.** This kernel integrates a file journal, storage, and manifest for data storage.
 - **A gRPC kernel that stores data in remote gRPC servers.** An engine uses a kernel client to communicate with a kernel server. The kernel server can further connect to a journal server and a storage server for data storage. Engula 0.2 provides a binary to start different kinds of servers easily.
 
-**If you want to try it out, we prepare a [tutorial](tutorial-0.2.md) for you. Have fun!**
+**If you want to try it out, we prepare a [tutorial](/blog/tutorial-0.2) for you. Have fun!**
 
 ## Community development
 

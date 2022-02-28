@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Engula',
-  tagline: 'A persistent data structure store',
+  tagline: 'A cloud-native data structure store',
   url: 'https://engula.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
