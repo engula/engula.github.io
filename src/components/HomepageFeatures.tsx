@@ -9,38 +9,26 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Flexible Data API',
+    title: 'Easy to use',
     image: '/img/feature-1.svg',
     description: (
       <>
-        Provide persistent data structures such as numbers, strings, maps, and lists.
       </>
     ),
   },
   {
-    title: 'ACID Transaction',
+    title: 'Highly scalable',
     image: '/img/feature-2.svg',
     description: (
       <>
-        Empower advanced applications with different isolation and consistency levels.
       </>
     ),
   },
   {
-    title: 'Built-in Cache',
-    image: '/img/feature-2.svg',
-    description: (
-      <>
-        Implement a built-in cache tier to speed up reads, resist hotspots and traffic bursts.
-      </>
-    ),
-  },
-  {
-    title: 'Cost-effective',
+    title: 'Flexible data API',
     image: '/img/feature-3.svg',
     description: (
       <>
-        Implement a cloud-native architecture to deliver higher performance with less resource consumption.
       </>
     ),
   },
