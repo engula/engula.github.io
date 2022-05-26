@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import HomepageFeatures from '../components/HomepageFeatures';
 import ArrowIcon from '../../static/img/icon-arrow.svg';
 import GithubIcon from '../../static/img/icon-github.svg';
 
@@ -40,7 +39,6 @@ export default function Home(): JSX.Element {
       description={`${siteConfig.tagline}`}>
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
       </main>
     </Layout>
   );
