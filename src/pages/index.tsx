@@ -2,7 +2,6 @@ import React from 'react';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import HomepageFeatures from '../components/HomepageFeatures';
 import ArrowIcon from '../../static/img/icon-arrow.svg';
 import GithubIcon from '../../static/img/icon-github.svg';
 
@@ -12,8 +11,8 @@ function HomepageHeader() {
       <div className="container row hero-text">
         <div className='col banner-text'>
           <h1 hidden>Engula</h1>
-          <h2 className="hero__title">A cloud-native data structure store</h2>
-          <p className="hero__subtitle">used as a database, cache, and storage engine</p>
+          <h2 className="hero__title">A highly scalable, low latency key-value store</h2>
+          <p className="hero__subtitle">used as a cache, database, and storage engine</p>
           <div className='link-buttons'>
             <Link
               className="button button--lg start-button"
@@ -40,7 +39,6 @@ export default function Home(): JSX.Element {
       description={`${siteConfig.tagline}`}>
       <HomepageHeader />
       <main>
-        <HomepageFeatures />
       </main>
     </Layout>
   );
